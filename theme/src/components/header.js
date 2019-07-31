@@ -31,7 +31,7 @@ export default ({
   }
 
   return (
-    <header sx={{ variant: "layout.header" }}>
+    <header role="banner" sx={{ variant: "layout.header" }}>
       <Container sx={{ variant: "layout.header.container" }}>
         <div sx={{ variant: "layout.header.homeLink" }}>
           {logoImg ? (

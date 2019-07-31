@@ -41,6 +41,14 @@ exports.onPreBootstrap = ({ store }, themeOptions) => {
   if (!configFilesDest.length && configSrc !== configDest) {
     fs.copySync(configSrc, configDest)
   }
+
+  // Copy content files from theme to site
+  const contentSrc = path.join(__dirname, "content")
+  const contentDest = contentPath || "content"
+  const contentFilesDest = fs.readdirSync(contentDest)
+  if (!contentFilesDest.length && contentSrc !== contentDest) {
+    fs.copySync(contentSrc, contentDest)
+  }
 }
 
 /* 

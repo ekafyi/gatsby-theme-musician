@@ -60,7 +60,7 @@ const SEO = ({ meta, pageTitle, pageDescription, url, twitterCardType }) => {
   }
 
   let miscMetaTwitter = []
-  if (artist.hasOwnProperty("contact_twitter_username")) {
+  if (artist.contact_twitter_username) {
     const twitterName =
       artist.contact_twitter_username.charAt(0) === "@"
         ? artist.contact_twitter_username
@@ -99,10 +99,7 @@ const SEO = ({ meta, pageTitle, pageDescription, url, twitterCardType }) => {
     })
   }
 
-  if (
-    artist.hasOwnProperty("contact_phone") ||
-    artist.hasOwnProperty("contact_email")
-  ) {
+  if (artist.contact_phone || artist.contact_email) {
     const contactObject = {
       "@type": "ContactPoint",
       contactType: "sales",
