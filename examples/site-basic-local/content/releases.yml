@@ -1,6 +1,7 @@
 - title: Daydream Nation
   date: 1988-10-04
   release_type: Album
+  image: "./placeholder.png"
   links:
     - name: Spotify
       url: https://open.spotify.com/album/5z8bPdGFiJx56cqsHTvWM9
@@ -36,4 +37,3 @@
       url: https://music.apple.com/us/album/daydream-nation-remastered/520504308
     - name: Youtube
       url: https://music.apple.com/us/album/daydream-nation-remastered/520504308
-

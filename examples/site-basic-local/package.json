@@ -5,13 +5,14 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
+    "clean": "gatsby clean",
     "develop": "gatsby develop",
     "start": "npm run develop",
     "serve": "gatsby serve"
   },
   "dependencies": {
+    "gatsby-theme-musician": "*",
     "gatsby": "^2.13.28",
-    "@ekafyi/gatsby-theme-musician": "*",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   }

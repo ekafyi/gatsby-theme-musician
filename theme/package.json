@@ -1,6 +1,6 @@
 {
-  "name": "@ekafyi/gatsby-theme-musician",
-  "version": "1.0.1",
+  "name": "gatsby-theme-musician",
+  "version": "1.0.2",
   "author": "Eka <me@eka.fyi>",
   "license": "MIT",
   "main": "index.js",

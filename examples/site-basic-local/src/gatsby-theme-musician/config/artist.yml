@@ -1,0 +1,16 @@
+artist:
+  name: Test Basic Site
+  tagline: This is Gatsby Theme Musician run from local yarn workspace
+  seo_title: Test Basic Site
+  seo_description: This is Gatsby Theme Musician run from local yarn workspace
+  contact_twitter_username:
+  contact_phone:
+  contact_email:
+
+social:
+  - name: Twitter
+    url: https://twitter.com/blah
+  - name: Bandcamp
+    url: https://bandcamp.com/blah
+
+site_language: en

@@ -35,12 +35,11 @@ exports.onPreBootstrap = ({ store }, themeOptions) => {
   })
 
   // Copy config files from theme to site
-  const src = path.join(__dirname, "src/config")
-  const dest = configPath
-  const configFilesDest = fs.readdirSync(dest)
-
-  if (!configFilesDest.length && src !== dest) {
-    fs.copySync(src, dest)
+  const configSrc = path.join(__dirname, "src/config")
+  const configDest = configPath
+  const configFilesDest = fs.readdirSync(configDest)
+  if (!configFilesDest.length && configSrc !== configDest) {
+    fs.copySync(configSrc, configDest)
   }
 }
 
