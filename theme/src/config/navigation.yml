@@ -1,0 +1,12 @@
+navigation:
+  - text: Shows
+    url: "#shows"
+  - text: Releases
+    url: "#releases"
+  - text: Contact
+    url: "#contact"
+
+theming:
+  colors:
+    background: "#fff"
+    text: "#111"
