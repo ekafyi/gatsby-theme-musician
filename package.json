@@ -1,9 +1,8 @@
 {
   "private": true,
   "workspaces": [
-    "site-general",
-    "site-musician",
-    "gatsby-theme-musician"
+    "theme",
+    "examples/site-basic-local"
   ],
   "scripts": {
     "lint": "eslint --ext .js,.jsx --ignore-pattern public ."
