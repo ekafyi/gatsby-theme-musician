@@ -1,0 +1,10 @@
+{
+  "extends": ["gatsby-standard", "plugin:jsx-a11y/recommended"],
+  "plugins": ["jsx-a11y"],
+  "rules": {
+    "camelcase": "warn",
+    "no-unsafe-finally": "off",
+    "react/display-name": "off"
+    // "react/jsx-uses-react": "off"
+  }
+}
