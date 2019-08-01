@@ -1,9 +1,0 @@
-- name: Test Show 1
-  date: 2019-08-10
-  location: Location Name, City, etc
-  info_url: https://blah.com
-  map_url: https://blah.com
-
-- name: Test Show 2
-  date: 2019-08-31
-  location: Another Location Name, Another City
