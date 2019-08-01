@@ -49,16 +49,6 @@ const elementStyles = {
     borderColor: colors.primary,
     borderStyle: "solid",
   },
-  ul: {
-    "&.Gtm-u-inline-text-list": {
-      ...helpers.inlineTextListStyle,
-    },
-  },
-  ol: {
-    "&.Gtm-u-inline-text-list": {
-      ...helpers.inlineTextListStyle,
-    },
-  },
   small: {
     fontSize: 0,
   },

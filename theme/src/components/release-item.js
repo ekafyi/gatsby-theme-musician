@@ -59,8 +59,11 @@ const ReleaseItem = ({ id, title, date, release_type, image, links }) => {
         <div sx={{ variant: "textStyles.itemSubheading", mt: 2 }}>
           Listen:&nbsp;
           <Styled.ul
-            className="Gtm-u-inline-text-list"
-            sx={{ display: "inline", lineHeight: 1.6 }}
+            sx={{
+              variant: "textStyles.inlineTextList",
+              display: "inline",
+              lineHeight: 1.6,
+            }}
           >
             {links.map(link => {
               return (

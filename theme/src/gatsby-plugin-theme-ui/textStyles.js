@@ -11,6 +11,7 @@ const basicButtonStyle = {
 const inlineTextListStyle = {
   listStyle: "none",
   p: 0,
+  color: "purple",
   li: {
     display: "inline-block",
     mx: 1,
