@@ -4,7 +4,7 @@ import { jsx } from "theme-ui"
 export default props => (
   <a
     {...props}
-    href="#content"
+    href={props.href || "#main"}
     sx={{
       clip: "rect(0 0 0 0)",
       height: 1,

@@ -32,7 +32,7 @@ const Layout = props => {
       />
       <SkipLink>Skip to content</SkipLink>
       <Header location={props.location} />
-      {props.children}
+      <main id="main">{props.children}</main>
       <Footer />
     </Styled.root>
   )
