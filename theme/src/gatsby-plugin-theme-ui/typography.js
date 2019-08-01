@@ -1,18 +1,19 @@
-const headingStyle = {
-  fontFamily: "heading",
-  lineHeight: "heading",
-  fontWeight: "heading",
-  mt: 0,
-}
-
-const fontFamily = {
-  body: "system-ui, sans-serif",
-  heading: "system-ui, sans-serif",
-}
+const bodyFontFamily = `-apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+  "Oxygen", "Ubuntu", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
+  "Segoe UI Emoji", "Segoe UI Symbol"`
+const headingFontFamily = `inherit`
 
 const typography = {
-  headingStyle,
-  fonts: fontFamily,
+  headingStyle: {
+    fontFamily: "heading",
+    lineHeight: "heading",
+    fontWeight: "heading",
+    mt: 0,
+  },
+  fonts: {
+    body: bodyFontFamily,
+    heading: headingFontFamily,
+  },
   fontSizes: [12, 14, 16, 20, 24, 32, 48, 64, 72, 90, 120],
   fontWeights: {
     body: 400,

@@ -5,7 +5,13 @@ import { Styled, jsx } from "theme-ui"
 
 const LandingSectionTitle = props => {
   return (
-    <Styled.h2 sx={{ variant: "textStyles.landingSectionTitle" }}>
+    <Styled.h2
+      sx={{
+        textAlign: "center",
+        mt: 0,
+        mb: [4, 5],
+      }}
+    >
       {props.children}
     </Styled.h2>
   )

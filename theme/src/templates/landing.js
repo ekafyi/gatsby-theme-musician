@@ -39,12 +39,7 @@ const LandingTemplate = ({ location }) => {
     <MDXProvider
       components={{
         ...shortcodes,
-        h2: props => (
-          <Styled.h2
-            {...props}
-            sx={{ variant: "textStyles.landingSectionTitle" }}
-          />
-        ),
+        h2: props => <Styled.h2 {...props} sx={{ textAlign: "center" }} />,
       }}
     >
       <MDXRenderer location={location} shows={shows} releases={releases}>

@@ -1,3 +1,6 @@
+// !TODO add `space` array for shadowing/extending reference
+// Can't find default values
+
 const spacing = {
   headerHeight: [48, null, 60],
   landingSectionSpacing: [5, null, "calc(3rem + 3.5vw)", null, null, 5],

@@ -44,11 +44,6 @@ const textStyles = {
     color: colors.muted,
     fontSize: 1,
   },
-  landingSectionTitle: {
-    textAlign: "center",
-    mt: 0,
-    mb: [4, 5],
-  },
   navLink: {
     display: "inline-block",
     color: "inherit",

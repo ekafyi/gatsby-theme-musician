@@ -26,7 +26,7 @@ const theme = {
   // Typography & Text
 
   ...typography,
-  ...textStyles,
+  textStyles,
 
   // Element Styles
 
