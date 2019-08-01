@@ -1,22 +1,20 @@
 artist:
-  name: Your Awesome Band
-  tagline: Short information about your group, new album, etc
-  # seo_title:
-  # seo_description:
-  # contact_twitter_username:
+  name: The Undefined
+  tagline: On Southeast Asia tour August-September 2019. Fictional.
+  seo_title: The Undefined | Yogyakarta, Indonesia fictional electronic band
+  seo_description: Fictional electronic group from Yogyakarta, Indonesia
+  contact_twitter_username: "@thisaccountdoesnotexist"
   # contact_phone: 
   # contact_email: 
 
 social:
-  - name: Facebook
-    url: https://facebook.com
   - name: Instagram
-    url: https://instagram.com
+    url: https://instagram.com/thisaccountdoesnotexist
   - name: Twitter
-    url: https://twitter.com
+    url: https://twitter.com/thisaccountdoesnotexist
   - name: Youtube
-    url: https://youtube.com
-  - name: Spotify
-    url: https://spotify.com
+    url: https://youtube.com/thisaccountdoesnotexist
+  - name: Bandcamp
+    url: https://thisaccountdoesnotexist.bandcamp.com
 
 site_language: en
