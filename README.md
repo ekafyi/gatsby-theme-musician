@@ -206,16 +206,16 @@ Optionally, you may add images in PNG or JPG format with the following file name
 # releases.yml
 
 - title: Your Album Title
-	# Release date in yyyy-mm-dd format
-	date: 1988-10-04
+  # Release date in yyyy-mm-dd format
+  date: 1988-10-04
 
   # Can be anything (Album, EP, Single)
-	release_type: Album
+  release_type: Album
 
-	# Cover image (add the image to your content folder)
-	image: "./placeholder.png"
+  # Cover image (add the image to your content folder)
+  image: "./placeholder.png"
 
-	# Where people can listen/buy/stream
+  # Where people can listen/buy/stream
   links:
     - name: Spotify
       url: https://open.spotify.com/album/5z8bPdGFiJx56cqsHTvWM9
