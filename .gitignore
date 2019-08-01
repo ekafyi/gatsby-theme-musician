@@ -71,3 +71,4 @@ yarn-error.log
 
 # Local yarn workspace site
 examples/site-basic-local
+examples/site-nervous
