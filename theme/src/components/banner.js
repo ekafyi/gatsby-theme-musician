@@ -1,6 +1,7 @@
 /** @jsx jsx */
 // eslint-disable-next-line no-unused-vars
 import React from "react"
+import PropTypes from "prop-types"
 import { Styled, jsx, Container } from "theme-ui"
 
 import useSiteMetadata from "../use-site-metadata"
@@ -18,19 +19,20 @@ const BannerContent = ({ title, tagline }) => (
   </>
 )
 
-export default props => {
+const Banner = ({ children, bgOverlay, color }) => {
   const { title, artist, bannerImg } = useSiteMetadata()
 
   if (bannerImg) {
-    additionalStyles = {
-      flexDirection: "column",
-    }
+    additionalStyles["flexDirection"] = "column"
+  }
+  if (color) {
+    additionalStyles["color"] = "color"
   }
 
-  if (props.bgOverlay) {
+  if (bgOverlay) {
     bgOverlayStyles = {
       "&:after": {
-        background: props.bgOverlay,
+        background: bgOverlay,
       },
     }
   }
@@ -58,7 +60,7 @@ export default props => {
           sx={{ flexGrow: 1 }}
         >
           <Container className="GtmBanner__content-wrapper">
-            {props.children ? props.children : bannerContentElement}
+            {children || bannerContentElement}
           </Container>
         </HeroImage>
       ) : (
@@ -66,9 +68,17 @@ export default props => {
           className="GtmBanner__content-wrapper"
           sx={{ alignSelf: "center" }}
         >
-          {props.children ? props.children : bannerContentElement}
+          {children || bannerContentElement}
         </Container>
       )}
     </div>
   )
 }
+
+Banner.propTypes = {
+  children: PropTypes.any,
+  bgOverlay: PropTypes.string,
+  color: PropTypes.string,
+}
+
+export default Banner
