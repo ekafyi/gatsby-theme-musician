@@ -19,11 +19,13 @@ const iconStyle = {
 const Social = ({ data }) => {
   const { social } = useSiteMetadata()
 
-  // Use siteMetadata values as default fallback
+  // Use YAML config values as default fallback
   if (!data.length) {
     if (social.length) {
-      if (social[0].hasOwnProperty("name") && social[0].name.length) {
-        data = social
+      if (typeof social[0].name !== "undefined") {
+        if (social[0].name.length) {
+          data = social
+        }
       }
     }
   }

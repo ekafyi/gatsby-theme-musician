@@ -9,18 +9,19 @@ import LandingSectionTitle from "./landing-section-title"
 import ReleaseItem from "./release-item"
 
 const Releases = ({ releases = [], columns }) => {
-  let customGridTemplateColumns
-  if (!columns) {
-    customGridTemplateColumns = [null, "repeat(auto-fit,minmax(14em,1fr))"]
-  }
-
-  // Use text label from YAML user config
+  // Use text label from YAML config
   let sectionTitle = "Releases"
   const { textLabels } = useSiteMetadata()
-  if (textLabels.hasOwnProperty("section_releases_title")) {
+  if (typeof textLabels.section_releases_title !== "undefined") {
     if (textLabels.section_releases_title.length) {
       sectionTitle = textLabels.section_releases_title
     }
+  }
+
+  // Define custom grid template only if not defined from the component
+  let customGridTemplateColumns
+  if (!columns) {
+    customGridTemplateColumns = [null, "repeat(auto-fit,minmax(14em,1fr))"]
   }
 
   return (

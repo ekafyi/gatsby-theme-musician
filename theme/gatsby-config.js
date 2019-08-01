@@ -1,6 +1,7 @@
 module.exports = options => ({
   siteMetadata: {
     title: "Gatsby Theme Musician",
+    description: "",
     siteUrl: "https://github.com/ekafyi/eka-gatsby-playground",
   },
   plugins: [

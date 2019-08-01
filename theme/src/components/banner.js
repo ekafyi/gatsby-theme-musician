@@ -38,7 +38,7 @@ export default props => {
   const bannerContentElement = (
     <BannerContent
       title={title}
-      tagline={artist.hasOwnProperty("tagline") ? artist.tagline : null}
+      tagline={typeof artist.tagline === "undefined" ? null : artist.tagline}
     />
   )
 

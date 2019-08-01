@@ -11,7 +11,7 @@ const Shows = ({ shows = [] }) => {
   // Use text label from YAML user config
   let sectionTitle = "Shows"
   const { textLabels } = useSiteMetadata()
-  if (textLabels.hasOwnProperty("section_shows_title")) {
+  if (typeof textLabels.section_shows_title !== "undefined") {
     if (textLabels.section_shows_title.length) {
       sectionTitle = textLabels.section_shows_title
     }

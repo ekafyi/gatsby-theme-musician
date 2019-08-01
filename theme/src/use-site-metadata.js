@@ -3,6 +3,14 @@ import userConfig from "./config/artist.yml"
 // eslint-disable-next-line import/no-unresolved
 import textLabels from "./config/text_labels.yml"
 
+function hasObjectAndLength(parentObj, childObjKey) {
+  if (typeof parentObj[childObjKey] !== "undefined") {
+    if (parentObj[childObjKey].length) {
+      return true
+    } else return false
+  } else return false
+}
+
 export default () => {
   const { site, bannerImg, socialImg, logoImg } = useStaticQuery(siteQuery)
 
@@ -12,17 +20,21 @@ export default () => {
    */
 
   // Social links
-  if (userConfig.hasOwnProperty("social")) {
+  if (hasObjectAndLength(userConfig, "social")) {
     site.siteMetadata.social = userConfig.social
   } else {
     site.siteMetadata.social = []
   }
 
   // Artist data
-  if (userConfig.hasOwnProperty("artist")) {
-    site.siteMetadata.artist = userConfig.artist
-  } else {
-    site.siteMetadata.artist = {}
+  site.siteMetadata.artist = userConfig.artist
+
+  // Use artist name as site title ONLY if user does not define in siteMetadata
+  if (
+    !site.siteMetadata.title ||
+    site.siteMetadata.title === "Gatsby Theme Musician"
+  ) {
+    site.siteMetadata.title = userConfig.artist.name
   }
 
   // Site text labels (eg. "Releases", "Listen")
@@ -60,6 +72,7 @@ const siteQuery = graphql`
     site {
       siteMetadata {
         title
+        description
         siteUrl
       }
     }

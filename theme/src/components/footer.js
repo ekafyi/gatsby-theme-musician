@@ -11,8 +11,10 @@ export default ({ children }) => {
 
   let hasSocial = false
   if (social.length) {
-    if (social[0].hasOwnProperty("name") && social[0].name.length) {
-      hasSocial = true
+    if (typeof social[0].name !== "undefined") {
+      if (social[0].name.length) {
+        hasSocial = true
+      }
     }
   }
 

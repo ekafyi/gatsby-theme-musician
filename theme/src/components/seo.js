@@ -19,6 +19,15 @@ const schema = {
   sameAs: [],
 }
 
+// Helper function to check user's YAML config
+function hasObjectAndLength(parentObj, childObjKey) {
+  if (typeof parentObj[childObjKey] !== "undefined") {
+    if (parentObj[childObjKey].length) {
+      return true
+    } else return false
+  } else return false
+}
+
 const SEO = ({ meta, pageTitle, pageDescription, url, twitterCardType }) => {
   /**
    * Prepare image from user's "content" folder
@@ -45,14 +54,14 @@ const SEO = ({ meta, pageTitle, pageDescription, url, twitterCardType }) => {
 
   const defaultConfigTitle = "Gatsby Theme Musician"
   let siteTitle = useSiteMetadata().title
-  if (siteTitle === defaultConfigTitle && artist.hasOwnProperty("name")) {
+  if (siteTitle === defaultConfigTitle && hasObjectAndLength(artist, "name")) {
     siteTitle = artist.name
   }
-  if (artist.hasOwnProperty("seo_title")) {
+  if (hasObjectAndLength(artist, "seo_title")) {
     siteTitle = artist.seo_title
   }
 
-  let siteDescription = ""
+  let siteDescription = useSiteMetadata().description
   if (artist.hasOwnProperty("seo_description")) {
     siteDescription = artist.seo_description
   } else if (artist.hasOwnProperty("tagline")) {
@@ -78,7 +87,7 @@ const SEO = ({ meta, pageTitle, pageDescription, url, twitterCardType }) => {
   }
 
   let lang = "en"
-  if (useSiteMetadata().hasOwnProperty("site_language")) {
+  if (hasObjectAndLength(useSiteMetadata(), "site_language")) {
     lang = useSiteMetadata().site_language
   }
 
@@ -93,7 +102,7 @@ const SEO = ({ meta, pageTitle, pageDescription, url, twitterCardType }) => {
   const social = useSiteMetadata().social
   if (social.length) {
     social.forEach((item, index) => {
-      if (item.hasOwnProperty("url")) {
+      if (hasObjectAndLength(item, "url")) {
         schema.sameAs[index] = item.url
       }
     })

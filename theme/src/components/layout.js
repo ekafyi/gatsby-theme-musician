@@ -13,7 +13,7 @@ const Layout = props => {
   return (
     <Styled.root>
       <SEO
-        url={props.hasOwnProperty("location") ? props.location.href : null}
+        url={typeof props.location !== "undefined" ? props.location.href : null}
       />
       <ColorMode />
       <Global
