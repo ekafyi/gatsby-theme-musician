@@ -14,13 +14,16 @@
 
 ## Features
 
-- ⏱ Have a landing page up and running in minutes without creating a single component (unless you want to)
+- ⏱ Have a landing page up and running in minutes
 - 🔎 Optimized for SEO and social sharing
 - 📱 Mobile-friendly
-- ️⚡️ Fast and performant
-- 🙌🏽 Better with others—combine with other Gatsby themes (blog, ecommerce, photo galleries...)
-- 📝 Write your content in plain text, in Markdown, and/or React components thanks to [MDX](https://www.gatsbyjs.org/docs/mdx/)
-- 💅🏽 Versatile customization with [Theme UI](https://theme-ui.com/)
+- ️⚡️ Fast and performant, with and without Javascript
+- 🤓 Write as little _or_ as much code as you want
+- 🙌🏽 Better with others—endless combination with other Gatsby themes (blog, ecommerce, photo galleries...)
+- 📝 Write your content in plain text, Markdown, HTML elements, and React components thanks to [MDX](https://www.gatsbyjs.org/docs/mdx/)
+- 💅🏽 Customizable, versatile design tokens-based styling with [Theme UI](https://theme-ui.com/)
+
+[Introductory post on DEV.to](https://dev.to/ekafyi/make-a-landing-page-for-your-band-in-30-minutes-with-gatsby-theme-musician-2227)
 
 ---
 
