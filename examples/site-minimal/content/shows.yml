@@ -1,9 +1,20 @@
-- name: Test Show 1
+- name: Aliquam erat volutpat with Etiam Egestas
   date: 2019-08-10
-  location: Location Name, City, etc
-  info_url: https://blah.com
-  map_url: https://blah.com
+  location: Inner Alehouse, 2545 Parrish Avenue, Rocky Creek
+  info_url: https://some-website.com
+  map_url: https://maps.google.com
 
-- name: Test Show 2
+- name: Suspendisse Finibus Bibendum
   date: 2019-08-31
-  location: Another Location Name, Another City
+  location: The Screeching Pub, Summit Street, Sugar Grove
+  info_url: https://some-website.com
+  map_url: https://maps.google.com
+
+- name: Friday Night Event
+  date: 2019-09-06
+  location: Venue TBA, Ferburg
+
+- name: Maecenas volutpat tincidunt
+  date: 2019-09-15
+  location: Cape Neorim
+  info_url: https://some-website.com
