@@ -8,10 +8,13 @@
 
 ## Features
 
-- asdasd
-- asdsadsad
-- asdasdsa
-- asdasdsa
+- ⏱ Have a landing page up and running in minutes without creating a single component. Add content in text files—no coding necessary (if you don't want to)!
+- 🔎 Optimized for SEO and social sharing
+- 📱 Mobile-friendly
+- ️⚡️ Fast and performant
+- 🙌🏽 Better with others—combine with other Gatsby themes (blog, ecommerce, photo galleries...)
+- 📝 Write your content in plain text, Markdown, and React components thanks to MDX
+- 💅🏽 Versatile customization with Theme UI
 
 ---
 
@@ -63,7 +66,7 @@ You can access your site at http://localhost:8000
 
 Add your content, add extra pages, combine with other themes if you want!
 
-See "Usage" section below for more information.
+See ["Usage"](#usage) section below for more information.
 
 ### 5) Deploy
 
@@ -110,11 +113,9 @@ config
 
 💡 Learn more [about the YAML format](https://yaml.org/start.html) here.
 
-##### artist.yml
+#### artist.yml
 
-This file contains artist details such as name, contact, and SEO-related data. This is the one file you'd definitely want to edit 😉.
-
-Only `name` is required; everything else is optional.
+This file contains artist details such as name, contact, and SEO-related data. This is the one file you'd definitely want to edit 😉. Only `name` is required; everything else is optional.
 
 ```yaml
 # artist.yml
@@ -146,12 +147,15 @@ social:
 site_language: en
 ```
 
-##### navigation.yml
+#### navigation.yml
 
-This file contains navigation links
+This file contains navigation links displayed in the site header. You can add any links, including external links. You must have _at least one item_ there.
 
 ```yaml
 # navigation.yml
+# Internal anchor URLs (#shows, #releases) will not work if you change the `url`
+# You can, however, change the `text` (eg. Discography instead of Releases)
+
 navigation:
   - text: Shows
     url: "#shows"
@@ -161,22 +165,85 @@ navigation:
     url: "#contact"
 ```
 
-##### text_labels.yml
+#### text_labels.yml
 
-This file contains
-Currently only to customize "Releases" and "Shows" section title.
+This file contains text labels that you can customize. Currently it only contains "Releases" and "Shows" section headings. They are both required.
+
+```yaml
+# text_labels.yml
+section_releases_title: Releases
+section_shows_title: Shows
+```
 
 ### 3) Content
 
 By default, content files are located in `content` folder unless you specify differently in the [Theme Options](#theme-options).
 
-##### Page
+#### Page
 
-##### Images
+One page is created for you, `artist-landing-page.mdx`. You can add, remove, reorder any content in this page beyond the `<!-- Start editing here -->` line. 👌🏾
 
-##### Releases
+You may add custom pages by creating a MDX file in `src/pages`. For example, if you create `press.mdx`, the page will be created at http://localhost:8000/press.
 
-##### Shows
+💡Learn more [about the MDX format](https://mdxjs.com).
+
+#### Images
+
+Optionally, you may add images in PNG or JPG format with the following file names to your content folder.
+
+- artist-banner
+  - Displayed in the top banner. Minimum 1600px wide, landscape ratio.
+- artist-social
+  - Used as thumbnail in social shares. Aspect ratio 2:1.
+- artist-logotype
+  - Used in place of artist name in the header.
+
+#### Releases
+
+⚠️ Do not delete this file or remove the whole content. If you don't want to display this section, remove it from `artist-landing-page.mdx`.
+
+```yaml
+# releases.yml
+
+- title: Your Album Title
+	# Release date in yyyy-mm-dd format
+	date: 1988-10-04
+
+  # Can be anything (Album, EP, Single)
+	release_type: Album
+
+	# Cover image (add the image to your content folder)
+	image: "./placeholder.png"
+
+	# Where people can listen/buy/stream
+  links:
+    - name: Spotify
+      url: https://open.spotify.com/album/5z8bPdGFiJx56cqsHTvWM9
+    - name: Apple
+      url: https://music.apple.com/us/album/daydream-nation-remastered/520504308
+```
+
+#### Shows
+
+⚠️ Do not delete this file or remove the whole content. If you don't want to display this section, remove it from `artist-landing-page.mdx`.
+
+```yaml
+# shows.yml
+
+- name: Example Show 1
+
+  # Show date
+  date: 2019-07-30
+
+  # Show venue, short address, city
+  location: IFI LIP, Sagan, Yogyakarta
+
+  # Link for more info, RSVP, ticket purchase
+  info_url: https://some-event-page.com
+
+  # Link to map
+  map_url: https://maps.google.com
+```
 
 ---
 
