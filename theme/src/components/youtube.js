@@ -11,7 +11,7 @@ const videoStyle = {
   pb: ["56.25%", null, null, 450], // 16:9 ratio
   pt: 0,
   mx: "auto",
-  my: 4,
+  my: [4, null, null, 5],
   height: 0,
   iframe: {
     position: "absolute",
