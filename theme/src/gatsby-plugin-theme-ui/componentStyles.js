@@ -14,7 +14,7 @@ const bannerComponentStyle = {
   background: colors.text,
   fontSize: [3, null, 4],
   p: { mt: 0 },
-  mt: spacing.headerHeight, // if header is fixed position
+  mb: 4,
   color: colors.background,
   ".GtmBanner__content-wrapper": {
     zIndex: 1, // above gradient

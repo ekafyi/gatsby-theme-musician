@@ -1,5 +1,6 @@
 import colors from "./colors"
 import helpers from "./helpers"
+import spacing from "./spacing"
 import typography from "./typography"
 
 const elementStyles = {
@@ -8,6 +9,9 @@ const elementStyles = {
     lineHeight: "body",
     background: colors.background,
     color: colors.text,
+    main: {
+      pt: spacing.headerHeight,
+    },
   },
   h1: {
     ...typography.headingStyle,
@@ -25,6 +29,10 @@ const elementStyles = {
   h4: {
     ...typography.headingStyle,
     fontSize: 3,
+  },
+  p: {
+    mt: 0,
+    mb: 4,
   },
   a: {
     color: "inherit",
