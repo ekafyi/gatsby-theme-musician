@@ -73,6 +73,14 @@ The theme will copy the necessary theme files into your site folder.
 
 You can access your site at http://localhost:8000
 
+👀 **Note:** If you use a starter site or your site creates a page at root (`/`), you won’t be able to see the theme’s landing page. For example, if you use the starter site above, you will see the starter’s “Hello world” instead of the theme’s page when you run the site.
+
+You can choose one of these options:
+
+* Remove `src/pages/index.js` or  `src/pages/index.mdx` ,
+or
+- Change the `basePath` [theme option](#1-theme-options) to something else
+
 ### 4) Edit and add content!
 
 Add your content, add extra pages, combine with other themes if you want!
