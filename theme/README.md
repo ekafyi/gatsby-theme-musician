@@ -8,13 +8,13 @@
 
 ## Features
 
-- ⏱ Have a landing page up and running in minutes without creating a single component. Add content in text files—no coding necessary (if you don't want to)!
+- ⏱ Have a landing page up and running in minutes without creating a single component (unless you want to)
 - 🔎 Optimized for SEO and social sharing
 - 📱 Mobile-friendly
 - ️⚡️ Fast and performant
 - 🙌🏽 Better with others—combine with other Gatsby themes (blog, ecommerce, photo galleries...)
-- 📝 Write your content in plain text, Markdown, and React components thanks to MDX
-- 💅🏽 Versatile customization with Theme UI
+- 📝 Write your content in plain text, in Markdown, and/or React components thanks to [MDX](https://www.gatsbyjs.org/docs/mdx/)
+- 💅🏽 Versatile customization with [Theme UI](https://theme-ui.com/)
 
 ---
 
@@ -23,6 +23,17 @@
 ### 1) Prepare your Gatsby site
 
 Open your existing site _or_ create a new one. If you have never used Gatsby before, head to their [quick start guide](https://www.gatsbyjs.org/docs/quick-start/) or [beginner-friendly tutorials](https://www.gatsbyjs.org/tutorial/).
+
+The example below shows creating a new site in the folder `my-band-site` with the blank official Gatsby starter.
+
+```sh
+# create a new Gatsby site using the hello-world starter
+gatsby new my-band-site https://github.com/gatsbyjs/gatsby-starter-hello-world
+
+# go to the site folder
+cd my-band-site
+
+```
 
 ### 2) Add theme to your site
 
