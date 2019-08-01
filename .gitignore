@@ -68,3 +68,6 @@ yarn-error.log
 
 # Yarn Integrity file
 .yarn-integrity
+
+# Local yarn workspace site
+examples/site-basic-local
