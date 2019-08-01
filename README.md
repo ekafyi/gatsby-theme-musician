@@ -6,7 +6,11 @@
 	<em>A Gatsby theme for bands and music artists</em> 🎸🎙
 </p>
 
-[![Demo Site thumbnail](https://raw.githubusercontent.com/ekafyi/gatsby-theme-musician/master/screenshot_with_bg.png)](https://gatsby-theme-musician.netlify.com)
+<p align="center">
+	<a href="https://gatsby-theme-musician.netlify.com" rel="external">
+    <img src="https://raw.githubusercontent.com/ekafyi/gatsby-theme-musician/master/screenshot_with_bg.png" alt="Demo Site thumbnail">
+  </a>
+</p>
 
 ## Features
 
