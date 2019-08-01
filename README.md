@@ -6,6 +6,8 @@
 	<em>A Gatsby theme for bands and music artists</em> 🎸🎙
 </p>
 
+[![Demo Site thumbnail](https://raw.githubusercontent.com/ekafyi/gatsby-theme-musician/master/screenshot.png)](https://gatsby-theme-musician.netlify.com)
+
 ## Features
 
 - ⏱ Have a landing page up and running in minutes without creating a single component (unless you want to)
@@ -225,8 +227,9 @@ Optionally, you may add images in PNG or JPG format with the following file name
 # releases.yml
 
 - title: Your Album Title
+
   # Release date in yyyy-mm-dd format
-  date: 1988-10-04
+  date: 2019-01-01
 
   # Can be anything (Album, EP, Single)
   release_type: Album
@@ -235,6 +238,7 @@ Optionally, you may add images in PNG or JPG format with the following file name
   image: "./placeholder.png"
 
   # Where people can listen/buy/stream
+  # At least one item in this file must have links
   links:
     - name: Spotify
       url: https://open.spotify.com/album/5z8bPdGFiJx56cqsHTvWM9
@@ -252,15 +256,15 @@ Optionally, you may add images in PNG or JPG format with the following file name
 - name: Example Show 1
 
   # Show date
-  date: 2019-07-30
+  date: 2019-08-15
 
-  # Show venue, short address, city
-  location: IFI LIP, Sagan, Yogyakarta
+  # Show venue
+  location: Some Nice Place, Your City
 
   # Link for more info, RSVP, ticket purchase
   info_url: https://some-event-page.com
 
-  # Link to map
+  # Link to location map
   map_url: https://maps.google.com
 ```
 
