@@ -22,6 +22,13 @@ const layoutStyles = {
       alignItems: "center",
       justifyContent: "space-between",
     },
+    customChild: {
+      lineHeight: [
+        `${spacing.headerHeight[0]}px`,
+        null,
+        `${spacing.headerHeight[2]}px`,
+      ],
+    },
     link: {
       ...textStyles.navLink,
       textTransform: "uppercase",

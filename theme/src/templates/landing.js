@@ -2,7 +2,7 @@
 // eslint-disable-next-line no-unused-vars
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
-import { Styled, jsx } from "theme-ui"
+import { jsx } from "theme-ui"
 import { MDXProvider } from "@mdx-js/react"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 
