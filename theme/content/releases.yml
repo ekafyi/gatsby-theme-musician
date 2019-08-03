@@ -1,18 +1,26 @@
-- title: Release 1
-  date: 2000-01-01
+- title: Sample Release 1
+  date: 2014-01-01
   release_type: Album
-  image: "./placeholder.png"
+  image: "./images/placeholder.jpg"
+  links:
+    - name: Discogs
+      url: https://discogs.com
+
+- title: Sample Release 2
+  date: 2018-01-01
+  release_type: Album
+  image: "./images/placeholder.jpg"
+  links:
+  links:
+    - name: Bandcamp
+      url: https://bandcamp.com
+
+- title: Sample Release 3
+  date: 2019-01-01
+  release_type: Album
+  image: "./images/placeholder.jpg"
   links:
     - name: Spotify
-      url: https://open.spotify.com/album/5z8bPdGFiJx56cqsHTvWM9
-    - name: Apple
-      url: https://music.apple.com/us/album/daydream-nation-remastered/520504308
-
-- title: Release 2
-  date: 2005-01-01
-  release_type: Album
-
-- title: Release 3
-  date: 2009-01-01
-  release_type: Album
-
+      url: https://open.spotify.com
+    - name: Apple Music
+      url: https://music.apple.com
