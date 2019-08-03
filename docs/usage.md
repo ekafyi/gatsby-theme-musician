@@ -8,11 +8,10 @@ Table of Content
 	- [navigation.yml](#-navigationyml)
 	- [text_labels.yml](#-text_labelsyml)
 - [Content](#content)
-	- [Text data](#text-data)
-		- [releases.yml](#-releasesyml)
-		- [shows.yml](#-showsyml)
-		- [artist-landing-page.mdx](#-artist-landing-pagemdx)
-	- [Images](#images)
+	- [artist-landing-page.mdx](#-artist-landing-pagemdx)
+	- [releases.yml](#-releasesyml)
+	- [shows.yml](#-showsyml)
+	- [Images](#-images)
 	- [Creating additional pages](#creating-additional-pages)
 
 ---
@@ -50,7 +49,7 @@ config
 └── text_labels.yml # Site text labels
 ```
 
-#### 📄 artist.yml
+### 📄 artist.yml
 
 This file contains data about the artist, which are displayed in the UI (header, banner, social links) and used in various site metadata. Add pound sign (#) and a space before a line to disable/comment it out; remove them to enable.
 
@@ -110,7 +109,7 @@ Learn more:
 - [Twitter card markup — Twitter Developer](https://developer.twitter.com/en/docs/tweets/optimize-with-cards/overview/summary-card-with-large-image)
 - [Structured data — Google Search Guides](https://developers.google.com/search/docs/guides/intro-structured-data)
 
-#### 📄 navigation.yml
+### 📄 navigation.yml
 
 This file contains items for the site navigation displayed in the header.
 
@@ -138,7 +137,7 @@ navigation:
     url: ""
 ```
 
-#### 📄 text_labels.yml
+### 📄 text_labels.yml
 
 This file contains text labels used in the site.
 
@@ -167,9 +166,31 @@ content
 └── shows.yml
 ```
 
-### Text data
+### 📄 artist-landing-page.mdx
 
-#### 📄 releases.yml
+This is the landing page template automatically created by the theme. You can add, remove, reorder any content in this page beyond the `<!-- Start editing here -->` line.
+
+This page uses [the MDX format](https://mdxjs.com), a new format that enables JSX in Markdown. As such, you can write regular text as well as any valid JSX (both native HTML elements and React components).
+
+```markdown
+<!-- Start editing here -->
+
+You can write regular text. Standard Markdown formatting such as **bold**, _italic_, or [hyperlink](https://github.com/ekafyi/gatsby-theme-musician) is supported.
+
+Since native HTML elements are valid JSX, you <em>can</em> use them here. However do note JSX-specific gotchas such as <span style={{ padding: 10, background: 'lightblue' }}>using style object</span> for inlining CSS styles.
+
+<Container>
+
+This theme has some components you can use out-of-the-box, such as `<Container>` and `<Youtube>`. You can see them in action in the default landing page.
+
+</Container>
+
+You can use any other React components by installing (if using external package) and importing them yourself.
+```
+
+To learn more about using Components in this theme, [go to the Components page](docs/components.md).
+
+### 📄 releases.yml
 
 This file contains entries for the **“Releases”** section. Each entry consists of the following:
 
@@ -202,7 +223,7 @@ Notes:
 
 * ⚠️ Do not delete this file or leave it blank. If you don't want to display this section, remove it from `artist-landing-page.mdx`.
 
-#### 📄 shows.yml
+### 📄 shows.yml
 
 This file contains entries for the **“Shows”** section.
 
@@ -227,31 +248,7 @@ Notes:
 - At the moment, at least ONE entry in this file must have `info_url` and `map_url`. Other fields are required for all entries.
 - ⚠️ Do not delete this file or leave it blank. If you don't want to display this section, remove it from `artist-landing-page.mdx`.
 
-#### 📄 artist-landing-page.mdx
-
-This is the landing page template automatically created by the theme. You can add, remove, reorder any content in this page beyond the `<!-- Start editing here -->` line.
-
-This page uses [the MDX format](https://mdxjs.com), a new format that enables JSX in Markdown. As such, you can write regular text as well as any valid JSX (both native HTML elements and React components).
-
-```markdown
-<!-- Start editing here -->
-
-You can write regular text. Standard Markdown formatting such as **bold**, _italic_, or [hyperlink](https://github.com/ekafyi/gatsby-theme-musician) is supported.
-
-Since native HTML elements are valid JSX, you <em>can</em> use them here. However do note JSX-specific gotchas such as <span style={{ padding: 10, background: 'lightblue' }}>using style object</span> for inlining CSS styles.
-
-<Container>
-
-This theme has some components you can use out-of-the-box, such as `<Container>` and `<Youtube>`. You can see them in action in the default landing page.
-
-</Container>
-
-You can use any other React components by installing (if using external package) and importing them yourself.
-```
-
-To learn more about using Components in this theme, [go to the Components page](docs/components.md).
-
-### Images
+### 🖼 Images
 
 Optionally, you may add the following images to your content folder.
 
