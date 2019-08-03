@@ -1,6 +1,7 @@
 - name: Sample Show 1
   date: "2019-08-10"
   location: Venue Name, Address, City/Region
+  # info_url and map_url are optional
   info_url: https://facebook.com/events
   map_url: https://maps.google.com
 

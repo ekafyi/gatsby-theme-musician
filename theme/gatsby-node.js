@@ -51,6 +51,26 @@ exports.onPreBootstrap = ({ store }, themeOptions) => {
   }
 }
 
+/**
+ * Experiment with GraphQL schema customization
+ *
+ * https://www.gatsbyjs.org/docs/schema-customization
+ */
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions
+  const typeDefs = `
+
+    type ShowsYaml implements Node @dontInfer {
+      name: String!
+      date: Date!
+      location: String!
+      info_url: String
+      map_url: String
+    }
+  `
+  createTypes(typeDefs)
+}
+
 /* 
 	Create pages programmatically
   https://www.gatsbyjs.org/docs/mdx/programmatically-creating-pages/
