@@ -52,17 +52,17 @@ config
 
 #### 📄 artist.yml
 
-This file contains data about the artist, which are displayed in the UI (header, banner, social links) and used in various site metadata.
-
-Remove the poundsign `#` to enable a line.
+This file contains data about the artist, which are displayed in the UI (header, banner, social links) and used in various site metadata. Add pound sign (#) and a space before a line to disable/comment it out; remove them to enable.
 
 ```yaml
 artist:
+  # Band or solo artist name (only this field is required)
   name: Your Awesome Band
 
   # Tagline displayed in banner
   tagline: Short information about your group, new album, etc
 
+  # SEO and contact fields (disabled by default)
   # seo_title:
   # seo_description:
   # contact_twitter_username:
@@ -86,14 +86,7 @@ social:
 site_language: en
 ```
 
-The only required field is `artist.name`. You can have the site running with this `artist.yml`.
-
-```yaml
-artist:
-  name: Your Awesome Band
-```
-
-You can use `seo_title` and `seo_description` to tailor the copy text into something more descriptive for search engines and external (social) sharing.
+You can use `seo_title` and `seo_description` to tailor the copy text into something more descriptive for search engines and external (social) sharing. If `seo_title` and `seo_description` are not provided, artist `name` and `tagline` are used instead. If contact-related data are not provided, they are omitted from the metadata. 
 
 - `seo_title`
 
@@ -110,8 +103,6 @@ You can use `seo_title` and `seo_description` to tailor the copy text into somet
 - `contact_phone` and `contact_email`
 
   Used in the JSON-LD structured data as the `contactPoint`
-
-If `seo_title` and `seo_description` are not provided, artist `name` and `tagline` are used instead. If contact-related data are not provided, they are omitted from the metadata. 
 
 Learn more:
 
@@ -264,12 +255,12 @@ To learn more about using Components in this theme, [go to the Components page](
 
 Optionally, you may add the following images to your content folder.
 
-| File name                | Description                                                   | Specifications                                                                                              |
-| ------------------------ | ------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
-| artist-banner.png\|jpg   | Displayed in banner as background image                       | Landscape orientation, any aspect ratio. Minimum width 1366 px.                                             |
-| artist-logotype.png\|jpg | Displayed in header in place of artist name                   | Landscape or square orientation, any aspect ratio. No size requirement but will be resized to 48 px height. |
-| artist-social.png\|jpg   | Used in metadata for social share thumbnail                   | Landscape orientation, aspect ratio 2:1. Minimum width 400 px.                                              |
-| favicon.png              | Displayed in browser title bar and desktop/mobile home screen | Square. Minimum 512x512 px.                                                                                 |
+| File name       | Extension | Description                                                   | Specifications                                                                                              |
+| --------------- | --------- | ------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| artist-banner   | png, jpg  | Displayed in banner as background image                       | Landscape orientation, any aspect ratio. Minimum width 1366 px.                                             |
+| artist-logotype | png, jpg  | Displayed in header in place of artist name                   | Landscape or square orientation, any aspect ratio. No size requirement but will be resized to 48 px height. |
+| artist-social   | png, jpg  | Used in metadata for social share thumbnail                   | Landscape orientation, aspect ratio 2:1. Minimum width 400 px.                                              |
+| favicon         | png       | Displayed in browser title bar and desktop/mobile home screen | Square. Minimum 512x512 px.                                                                                 |
 
 Notes:
 
