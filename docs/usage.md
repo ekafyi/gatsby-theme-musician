@@ -1,6 +1,21 @@
 # Usage
 
-You can work with this theme from three locations: the [theme options](#theme-options), [theme config directory](#theme-configuration), and [content directory](#content).
+Table of Content
+
+- [Theme options](#theme-options)
+- [Theme configuration](#theme-configuration)
+	- [artist.yml](#-artistyml)
+	- [navigation.yml](#-navigationyml)
+	- [text_labels.yml](#-text_labelsyml)
+- [Content](#content)
+	- [Text data](#text-data)
+		- [releases.yml](#-releasesyml)
+		- [shows.yml](#-showsyml)
+		- [artist-landing-page.mdx](#-artist-landing-pagemdx)
+	- [Images](#images)
+	- [Creating additional pages](#creating-additional-pages)
+
+---
 
 ## Theme options
 
@@ -22,6 +37,7 @@ module.exports = {
   ],
 }
 ```
+[↑ back to top](#usage)
 
 ## Theme configuration
 
@@ -77,21 +93,25 @@ artist:
   name: Your Awesome Band
 ```
 
-If `seo_title` and `seo_description` are not provided, artist `name` and `tagline` are used instead. You can use the former to tailor the copy text into something more descriptive for search engines and external (social) sharing.
-
-If contact-related data are not provided, they are omitted from the metadata.
+You can use `seo_title` and `seo_description` to tailor the copy text into something more descriptive for search engines and external (social) sharing.
 
 - `seo_title`
-  Used in `<title>`, OpenGraph `og:title` meta tag, Twitter `twitter:title` meta tag
+
+   Used in `<title>`, OpenGraph `og:title` meta tag, Twitter `twitter:title` meta tag
 
 - `seo_description`
+
   Used in `description` meta tag, OpenGraph `og:description` meta tag, Twitter `twitter:description` meta tag
 
 - `contact_twitter_username`
+
   Used in `twitter:site` and `twitter:creator` meta tags. Do NOT include the `@` sign.
 
 - `contact_phone` and `contact_email`
+
   Used in the JSON-LD structured data as the `contactPoint`
+
+If `seo_title` and `seo_description` are not provided, artist `name` and `tagline` are used instead. If contact-related data are not provided, they are omitted from the metadata. 
 
 Learn more:
 
@@ -139,6 +159,8 @@ section_shows_title: Shows
 For example, if you want to call the section **Discography** instead of **Releases**, or **Tour Dates** instead of **Shows**, this is the place to do it.
 
 - ️⚠️ Do NOT leave this file blank. If you delete the file, theme default will be used.
+
+[↑ back to top](#usage)
 
 ## Content
 
@@ -259,3 +281,5 @@ Notes:
 You may add custom pages by creating a MDX file in `src/pages`. For example, if you create `press.mdx`, the page will be created at http://localhost:8000/press.
 
 🔮 **In progress:** You will be able to add pages in the `content` folder so they are all in one place.
+
+[↑ back to top](#usage)
