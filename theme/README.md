@@ -27,9 +27,9 @@ Read [introductory post on DEV.to](https://dev.to/ekafyi/make-a-landing-page-for
 
 ---
 
-## 📦 Installation
+💡 _If you have never used Gatsby before, head to their [quick start guide](https://www.gatsbyjs.org/docs/quick-start/) or [beginner-friendly tutorials](https://www.gatsbyjs.org/tutorial/)._
 
-💡 **Note:** If you have never used Gatsby before, head to their [quick start guide](~https://www.gatsbyjs.org/docs/quick-start/~) or [beginner-friendly tutorials](~https://www.gatsbyjs.org/tutorial/~).
+## 📦 Installation
 
 ### Option A: Use the starter to create a _new_ site
 
@@ -99,16 +99,18 @@ config
 └── text_labels.yml # Site text labels
 ```
 
-💡 See [Theme Config documentation](https://github.com/ekafyi/gatsby-theme-musician/blob/master/docs/usage.md) for more details.
+💡 See [Theme Config documentation](https://github.com/ekafyi/gatsby-theme-musician/blob/master/docs/usage.md#theme-configuration) for more details.
 
 ### 3) Content
 
-By default, content files are located in `content` unless you specify a different path in the [theme options](~#theme-options~).
+By default, content files are located in `content` unless you specify a different path in the [theme options](#theme-options).
 
 ```sh
 content
 ├── artist-landing-page.mdx
-├── placeholder.png
+├── images
+│   ├── favicon.png
+│   └── placeholder.png
 ├── releases.yml
 └── shows.yml
 ```
@@ -119,7 +121,7 @@ Optionally, you may add images in PNG or JPG format with the following file name
 - `artist-logotype.png|jpg` — displayed in header (in place of artist name)
 - `artist-social.png|jpg` — used in SEO and social thumbnail metadata
 
-💡 See [Content documentation](https://github.com/ekafyi/gatsby-theme-musician/blob/master/docs/usage.md) for more details.
+💡 See [Content documentation](https://github.com/ekafyi/gatsby-theme-musician/blob/master/docs/usage.md#content) for more details.
 
 ---
 

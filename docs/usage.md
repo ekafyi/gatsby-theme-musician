@@ -148,7 +148,8 @@ Content files are located in `content`, unless you specify a different path in t
 content
 ├── artist-landing-page.mdx
 ├── images
-│   └── favicon.png
+│   ├── favicon.png
+│   └── placeholder.png
 ├── releases.yml
 └── shows.yml
 ```
@@ -169,7 +170,7 @@ This file contains entries for the **“Releases”** section. Each entry consis
   release_type: Album
 
   # Cover image path (relative to your content folder)
-  image: "./placeholder.png"
+  image: "./images/placeholder.png"
 
   # Links to listen/buy/stream the release
   links:
@@ -182,7 +183,8 @@ This file contains entries for the **“Releases”** section. Each entry consis
 Notes:
 
 - The day and month part of `date` is not displayed but is used to sort the releases (newest first—regardless of the order you write them in the file). If you don’t have another release from the same year, any date and month is fine _as long as they use the correct format_, eg. `2019-01-01`.
-- For the `image` field, add the release artwork image to your `content` folder. - You may also make subdirectories for your image, eg. `content/artworks`. Don’t forget to refer to your image accordingly: `image: "./artworks/image-file-name.png"`
+- For the `image` field, add the release artwork image to your `content` folder.
+  - You may add your image anywhere in the folder; in root `content` folder or any subdirectory. Just don’t forget to refer to your image accordingly, eg. `image: "./artworks/image-file-name.png"` (if you have your image in `content/artworks`).
 - Each `links` may consist of one or multiple items, such as streaming platforms, your record label’s website, or any other place people can listen to or buy that release. At the moment, at least ONE entry in this file must have at least one `links` item.
 
 * ⚠️ Do not delete this file or leave it blank. If you don't want to display this section, remove it from `artist-landing-page.mdx`.
