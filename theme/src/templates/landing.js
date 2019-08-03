@@ -6,6 +6,7 @@ import { Styled, jsx } from "theme-ui"
 import { MDXProvider } from "@mdx-js/react"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 
+import LandingSectionTitle from "../components/landing-section-title"
 import {
   Banner,
   Box,
@@ -39,7 +40,7 @@ const LandingTemplate = ({ location }) => {
     <MDXProvider
       components={{
         ...shortcodes,
-        h2: props => <Styled.h2 {...props} sx={{ textAlign: "center" }} />,
+        h2: props => <LandingSectionTitle {...props} />,
       }}
     >
       <MDXRenderer location={location} shows={shows} releases={releases}>

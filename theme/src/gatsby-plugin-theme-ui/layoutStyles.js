@@ -81,6 +81,9 @@ const layoutStyles = {
   },
   landingSection: {
     py: spacing.landingSectionSpacing,
+    "& + &": {
+      pt: 0,
+    },
     "& + hr": {
       mt: 0,
     },

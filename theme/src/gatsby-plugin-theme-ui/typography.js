@@ -21,7 +21,7 @@ const typography = {
     bold: 700,
   },
   lineHeights: {
-    body: 1.4,
+    body: 1.5,
     heading: 1.125,
   },
 }

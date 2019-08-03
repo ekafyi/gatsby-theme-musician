@@ -10,7 +10,7 @@ const elementStyles = {
     background: colors.background,
     color: colors.text,
     main: {
-      pt: spacing.headerHeight,
+      pt: [spacing.headerHeight[0] * 2, null, spacing.headerHeight[2]],
     },
   },
   h1: {
