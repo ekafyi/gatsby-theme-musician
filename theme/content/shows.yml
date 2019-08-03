@@ -1,14 +1,14 @@
 - name: Sample Show 1
-  date: 2019-08-10
+  date: "2019-08-10"
   location: Venue Name, Address, City/Region
   info_url: https://facebook.com/events
   map_url: https://maps.google.com
 
 - name: Sample Show 2
-  date: 2019-08-31
+  date: "2019-08-31"
   location: Venue Name, Address, City/Region
   info_url: https://facebook.com/events
 
 - name: Sample Show 3
-  date: 2019-09-2
+  date: "2019-09-02"
   location: Venue Name, Address, City/Region
