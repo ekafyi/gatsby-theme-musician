@@ -65,7 +65,7 @@ const landingQuery = graphql`
         map_url
       }
     }
-    releases: allReleasesYaml(sort: { fields: date, order: ASC }) {
+    releases: allReleasesYaml(sort: { fields: date, order: DESC }) {
       nodes {
         id
         title
