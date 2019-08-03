@@ -1,9 +1,14 @@
-- name: Test Show 1
+- name: Sample Show 1
   date: 2019-08-10
-  location: Location Name, City, etc
-  info_url: https://blah.com
-  map_url: https://blah.com
+  location: Venue Name, Address, City/Region
+  info_url: https://facebook.com/events
+  map_url: https://maps.google.com
 
-- name: Test Show 2
+- name: Sample Show 2
   date: 2019-08-31
-  location: Another Location Name, Another City
+  location: Venue Name, Address, City/Region
+  info_url: https://facebook.com/events
+
+- name: Sample Show 3
+  date: 2019-09-2
+  location: Venue Name, Address, City/Region
