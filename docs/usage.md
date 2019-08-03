@@ -41,7 +41,7 @@ module.exports = {
 
 ## Theme configuration
 
-Configuration files are located in `src/gatsby-theme-musician/config`. They use the [YAML format](~https://yaml.org/start.html~).
+Configuration files are located in `src/gatsby-theme-musician/config`. They use the [YAML format](https://yaml.org/start.html).
 
 ```sh
 config
