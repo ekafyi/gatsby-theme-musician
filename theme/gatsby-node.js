@@ -52,13 +52,24 @@ exports.onPreBootstrap = ({ store }, themeOptions) => {
 }
 
 /**
- * Experiment with GraphQL schema customization
+ * Customize GraphQL Schema to enable nullable (empty) fields
  *
  * https://www.gatsbyjs.org/docs/schema-customization
  */
 exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions
   const typeDefs = `
+    type ReleasesYaml implements Node {
+      title: String!
+      date: Date
+      release_type: String
+      image: File
+      links: [ReleaseLink]
+    }
+    type ReleaseLink {
+      name: String!
+      url: String!
+    }
 
     type ShowsYaml implements Node @dontInfer {
       name: String!
