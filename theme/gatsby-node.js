@@ -2,20 +2,21 @@ const fs = require(`fs-extra`)
 const path = require(`path`)
 const mkdirp = require(`mkdirp`)
 
-// These are customizable theme options we only need to check once
+// Customizable theme options we only need to check once
 let basePath
 let contentPath
 
 // Not a theme option, hardcoded to make it easier to shadow files
 let configPath = "src/gatsby-theme-musician/config"
 
-// These templates are simply data-fetching wrappers that import components
+// Templates are data-fetching wrappers that import components
 const LandingTemplate = require.resolve(`./src/templates/landing`)
 
-/* 
-	Make sure the site has necessary directories and files.
-	Runs before Gatsby starts working.
+/**
+ * Make sure the site has necessary directories and files.
+ * Called once Gatsby has initialized itself and is ready to bootstrap your site.
  */
+
 exports.onPreBootstrap = ({ store }, themeOptions) => {
   const { program } = store.getState()
 
@@ -56,6 +57,7 @@ exports.onPreBootstrap = ({ store }, themeOptions) => {
  *
  * https://www.gatsbyjs.org/docs/schema-customization
  */
+
 exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions
   const typeDefs = `
@@ -82,10 +84,12 @@ exports.createSchemaCustomization = ({ actions }) => {
   createTypes(typeDefs)
 }
 
-/* 
-	Create pages programmatically
-  https://www.gatsbyjs.org/docs/mdx/programmatically-creating-pages/
+/**
+ * Create pages programmatically
+ *
+ * https://www.gatsbyjs.org/docs/mdx/programmatically-creating-pages/
  */
+
 exports.createPages = async ({ actions }) => {
   const { createPage } = actions
 
