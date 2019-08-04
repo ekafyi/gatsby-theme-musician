@@ -4,13 +4,13 @@ import spacing from "./spacing"
 import typography from "./typography"
 
 const commonUtilityClasses = {
-  "&.text-center": {
+  ".text-center": {
     textAlign: "center",
   },
-  "&.text-left": {
+  ".text-left": {
     textAlign: "left",
   },
-  "&.text-right": {
+  ".text-right": {
     textAlign: "right",
   },
 }
@@ -37,6 +37,7 @@ const elementStyles = {
       verticalAlign: "middle",
       background: colors.bgAccent,
     },
+    ...commonUtilityClasses,
   },
   h1: {
     ...typography.headingStyle,
@@ -57,7 +58,6 @@ const elementStyles = {
   },
   p: {
     ...spacing.markdownElementYSpacing,
-    ...commonUtilityClasses,
   },
   ul: {
     ...spacing.markdownElementYSpacing,
@@ -71,9 +71,6 @@ const elementStyles = {
     ">p:not(:only-child):not(:last-child)": {
       mb: 1,
     },
-  },
-  div: {
-    ...commonUtilityClasses,
   },
   a: {
     color: "inherit",

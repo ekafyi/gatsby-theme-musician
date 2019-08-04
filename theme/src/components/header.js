@@ -16,21 +16,9 @@ const homeLinkStyle = {
   fontSize: [2, 2, 3],
 }
 
-// Get rootpath to check base path against
-// eslint-disable-next-line no-undef
-const rootPath = `${__PATH_PREFIX__}/`
-let isBasePath = false
-
-export default ({ children, location }) => {
+export default ({ children, location, isBasePath }) => {
   const { title, logoImg } = useSiteMetadata()
   const userNav = userConfig.navigation
-
-  // Check if this is base path
-  if (location) {
-    if (location.pathname === rootPath) {
-      isBasePath = true
-    }
-  }
 
   return (
     <header role="banner" sx={{ variant: "layout.header" }}>
@@ -38,7 +26,7 @@ export default ({ children, location }) => {
         <div sx={{ variant: "layout.header.homeLink" }}>
           {logoImg ? (
             isBasePath ? (
-              <AnchorLink href="/">
+              <AnchorLink href="#main">
                 <Img fixed={logoImg.fixed} />
               </AnchorLink>
             ) : (
@@ -63,7 +51,10 @@ export default ({ children, location }) => {
           {!children && userNav.length ? (
             <>
               {userNav.map(nav => {
-                if (isBasePath && nav.url.startsWith("#")) {
+                if (
+                  isBasePath &&
+                  (nav.url.startsWith("#") || nav.url.startsWith("/#"))
+                ) {
                   return (
                     <AnchorLink key={nav.text} href={nav.url}>
                       {nav.text}

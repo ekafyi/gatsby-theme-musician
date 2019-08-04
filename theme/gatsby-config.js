@@ -20,24 +20,35 @@ module.exports = options => {
       {
         resolve: "gatsby-source-filesystem",
         options: {
-          name: "content",
+          name: `content`,
           path: options.contentPath || "content",
         },
       },
       {
         resolve: "gatsby-plugin-mdx",
         options: {
+          // defaultLayouts doesn't work?
+          // defaultLayouts: {
+          //   default: require.resolve("./src/components/layout.js"),
+          // },
           extensions: [".mdx", ".md"],
           gatsbyRemarkPlugins: [
             {
               resolve: `gatsby-remark-embed-spotify`,
               options: {
                 width: 400, // default is "100%"
-                height: 600, // default is 400
+                height: 400, // default is 400
               },
             },
             {
               resolve: `gatsby-remark-embed-soundcloud`,
+              // These options don't work at the moment
+              options: {
+                width: 400, // default is "100%"
+                height: 400, // default is 300
+                // color: "#ff5500", // default is #ff5500
+                // autoplay: true, // default is false
+              },
             },
             {
               resolve: `gatsby-remark-images`,

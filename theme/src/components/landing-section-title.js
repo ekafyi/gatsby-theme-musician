@@ -7,9 +7,9 @@ const LandingSectionTitle = props => {
   return (
     <Styled.h2
       sx={{
-        textAlign: "center",
         mt: 0,
         mb: [4, 5],
+        textAlign: "center",
       }}
     >
       {props.children}

@@ -24,6 +24,9 @@ const Layout = props => {
           body: {
             margin: 0,
           },
+          iframe: {
+            maxWidth: "100%",
+          },
           img: {
             maxWidth: "100%",
             height: "auto",
@@ -31,7 +34,7 @@ const Layout = props => {
         }}
       />
       <SkipLink>Skip to content</SkipLink>
-      <Header location={props.location} />
+      <Header location={props.location} isBasePath={props.isBasePath} />
       <main id="main">{props.children}</main>
       <Footer />
     </Styled.root>

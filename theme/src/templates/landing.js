@@ -1,50 +1,24 @@
-/** @jsx jsx */
-// eslint-disable-next-line no-unused-vars
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
-import { jsx } from "theme-ui"
-import { MDXProvider } from "@mdx-js/react"
 import { MDXRenderer } from "gatsby-plugin-mdx"
+import MdxWrapper from "../components/mdx-wrapper"
 
-import LandingSectionTitle from "../components/landing-section-title"
-import {
-  Banner,
-  Container,
-  FullWidthContainer,
-  Grids,
-  Releases,
-  Shows,
-  Social,
-  Youtube,
-} from "../components"
-
-const shortcodes = {
-  Banner,
-  Container,
-  FullWidthContainer,
-  Grids,
-  Releases,
-  Shows,
-  Social,
-  Youtube,
-}
-
-const LandingTemplate = ({ location }) => {
+const LandingTemplate = ({ location, pageContext }) => {
   const data = useStaticQuery(landingQuery)
   const shows = data.shows.nodes
   const releases = data.releases.nodes
 
   return (
-    <MDXProvider
-      components={{
-        ...shortcodes,
-        h2: props => <LandingSectionTitle {...props} />,
-      }}
-    >
-      <MDXRenderer location={location} shows={shows} releases={releases}>
+    <MdxWrapper>
+      <MDXRenderer
+        location={location}
+        shows={shows}
+        releases={releases}
+        isBasePath
+      >
         {data.mdx.body}
       </MDXRenderer>
-    </MDXProvider>
+    </MdxWrapper>
   )
 }
 
