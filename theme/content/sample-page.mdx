@@ -1,0 +1,160 @@
+import Layout from "gatsby-theme-musician/src/components/layout"
+
+export default Layout
+
+<!-- Start editing here -->
+
+<Container>
+
+# Sample Page
+
+**gatsby-theme-musician** comes with some components, utility classes, and plugins you can use out-of-the-box to help you write your content. You can see them in action here, and open `sample-page.mdx` in your content folder to see the source.
+
+For more information about writing in MDX, [go to their website](https://mdxjs.com/).
+
+---
+
+## 🎸 Theme Components
+
+You can see these theme-specific components in action on the landing page (`artist-landing-page.mdx`). Read more about these components in the [Components Documentation](https://github.com/ekafyi/gatsby-theme-musician/blob/master/docs/components.md).
+
+- **Banner**
+
+  Display the artist name, tagline, and social links configured in `src/gatsby-theme-musician/config`
+
+- **Releases**
+
+  Display entries in `releases.yml`
+
+- **Shows**
+
+  Display entries in `shows.yml`
+
+---
+
+## 📐 Layout
+
+### Container
+
+By default, page content takes the entire screen width. Use `<Container>` to create a centered layout block with a maximum width (the default is 1024 px). Try removing the `<Container>` opening and closing tags at the top and the bottom of this page and see what the page looks like.
+
+### Grids
+
+Use the `<Grids>` component to display your content in a grid. The grid content must be separated by two line-breaks each. (On small screens, the columns expand to entire screen width.)
+
+<Grids>
+
+**hello world**
+
+**hello!**
+
+**what's up?**
+
+</Grids>
+
+By default, the Grids consist of 3 columns. You can modify it by adding the `columns` attribute.
+
+<Grids columns="5">
+
+**this grid**
+
+**contains**
+
+**five**
+
+**columns!**
+
+**hurray!**
+
+</Grids>
+
+---
+
+## 🔹 Basic Elements
+
+### Paragraphs and Blocks
+
+This is a regular text paragraph.
+
+<p className="text-center">This paragraph is centered using <code>className="text-center"</code> attribute.</p>
+
+<p className="text-right">And this paragraph is aligned right using <code>className="text-right"</code> attribute.</p>
+
+<div className="text-center">Other than paragraphs, these class names also work with the <code>{`<div>`}</code> element.</div>
+
+<p>&nbsp;</p>
+
+### Lists
+
+This is an unordered list with child lists:
+
+- Vestibulum tristique tempor neque quis malesuada
+  - Duis dictum vitae tortor a porttitor
+    - Duis dictum vitae tortor a porttitor
+- Curabitur fringilla eros justo, id consequat dui scelerisque vitae
+
+This is an ordered list:
+
+1. Vestibulum tristique tempor neque quis malesuada
+2. Duis dictum vitae tortor a porttitor
+3. Curabitur fringilla eros justo, id consequat dui scelerisque vitae
+
+### Images
+
+Regular Markdown image
+
+![gatsby-theme-musician demo site](https://raw.githubusercontent.com/ekafyi/gatsby-theme-musician/master/screenshot_with_bg.png)
+
+Regular Markdown image with caption
+
+![gatsby-theme-musician demo site](https://raw.githubusercontent.com/ekafyi/gatsby-theme-musician/master/screenshot_with_bg.png) <figcaption>Photo © Eka 2019 | <a href="https://github.com/ekafyi/gatsby-theme-musician">Source</a></figcaption>
+
+Regular Markdown image with hyperlink (click image to open)
+
+[![gatsby-theme-musician demo site](https://raw.githubusercontent.com/ekafyi/gatsby-theme-musician/master/screenshot_with_bg.png)](https://github.com/ekafyi/gatsby-theme-musician)
+
+### Links
+
+You can create hyperlinks with Markdown formatting or with regular HTML anchor element.
+
+You can give them the appearance of a button with the following class names: `.gtm-button`, `.gtm-button-primary`, and `.gtm-button-invert`.
+
+<a href="#" className="gtm-button">Button link</a> &nbsp; <a href="#" className="gtm-button-primary">Primary button link</a> &nbsp; <a href="#" className="gtm-button-invert">Inverted button link</a>
+
+<p>&nbsp;</p>
+
+### Blockquote
+
+> Here is a blockquote. Lorem ipsum dolor sit amet, vis doctus iriure recteque te, alii disputationi eu eum.
+>
+> Mollis aliquam senserit quo ad. Eam ad regione delenit gloriatur. At eos oporteat consetetur, id pri adhuc corpora. Stet vocibus explicari vim in, sed ne gloriatur elaboraret.
+>
+> <cite>Eka</cite>
+
+---
+
+## 📻 Media
+
+You can embed **Youtube** videos by using the `<Youtube>` component included in this theme.
+
+<Youtube url="https://www.youtube.com/watch?v=dQw4w9WgXcQ" />
+
+You can also embed from **Spotify** and **Soundcloud** simply by _inserting the link in a separate line_ with two line breaks before and after it.
+
+To embed from Spotify, insert a link to the album, track, playlist, or artist. You can get the link by clicking the ellipsis (⋯) after the item title on Spotify and choosing _"Copy [Album, Track, etc] Link"_.
+
+https://open.spotify.com/album/6XhjNHCyCDyyGJRM5mg40G
+
+To embed from Soundcloud, insert a link to a track or a set.
+
+https://soundcloud.com/andreasedstr-m/rick-astley-never-gonna-give
+
+To center the embedded Spotify or Soundcloud media, wrap it in a centered div.
+
+<div className="text-center">
+
+https://open.spotify.com/album/6XhjNHCyCDyyGJRM5mg40G
+
+</div>
+
+</Container>
