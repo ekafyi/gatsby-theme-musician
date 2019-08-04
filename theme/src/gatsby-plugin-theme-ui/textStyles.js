@@ -3,6 +3,7 @@ import colors from "./colors"
 const buttonMediumSpacing = {
   px: 3,
   py: 2,
+  my: 1,
 }
 
 const buttonBasic = {
