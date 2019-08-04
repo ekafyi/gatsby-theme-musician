@@ -29,7 +29,6 @@ const bannerComponentStyle = {
     "a:not(.GtmSocialItem)": {
       ...textStyles.buttonBase,
       color: colors.background,
-      border: "2px solid",
       px: 4,
       py: 3,
       mx: 2,

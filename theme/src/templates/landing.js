@@ -9,7 +9,6 @@ import { MDXRenderer } from "gatsby-plugin-mdx"
 import LandingSectionTitle from "../components/landing-section-title"
 import {
   Banner,
-  Box,
   Container,
   FullWidthContainer,
   Grids,
@@ -21,7 +20,6 @@ import {
 
 const shortcodes = {
   Banner,
-  Box,
   Container,
   FullWidthContainer,
   Grids,

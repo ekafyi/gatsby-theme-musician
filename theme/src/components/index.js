@@ -1,5 +1,4 @@
 export { default as Banner } from "./banner"
-export { default as Box } from "./box"
 export { default as Container } from "./container"
 export { default as Grids } from "./grids"
 export { default as FullWidthContainer } from "./full-width-container"
