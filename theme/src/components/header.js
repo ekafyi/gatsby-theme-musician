@@ -25,8 +25,6 @@ export default ({ children, location }) => {
   const { title, logoImg } = useSiteMetadata()
   const userNav = userConfig.navigation
 
-  console.log(children)
-
   // Check if this is base path
   if (location) {
     if (location.pathname === rootPath) {
