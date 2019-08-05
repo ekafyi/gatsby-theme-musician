@@ -112,6 +112,7 @@ content
 │   ├── favicon.png
 │   └── placeholder.png
 ├── releases.yml
+├── sample-page.mdx
 └── shows.yml
 ```
 
