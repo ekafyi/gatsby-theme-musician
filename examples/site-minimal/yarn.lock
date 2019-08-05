@@ -5498,10 +5498,10 @@ gatsby-telemetry@^1.1.7:
     stack-utils "1.0.2"
     uuid "3.3.2"
 
-gatsby-theme-musician@^1.0.4:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/gatsby-theme-musician/-/gatsby-theme-musician-1.0.4.tgz#fb1219091c90e87da1423e097455174411412226"
-  integrity sha512-pWzI7pMqMQiVNSiS6xfIhceAmLTGcYfByDBtr6HFF5tRoruuto/3eJlzdB+p8odvEf4rQIq+wl3/06B9Dx/7Ww==
+gatsby-theme-musician@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/gatsby-theme-musician/-/gatsby-theme-musician-1.0.5.tgz#11f3fffe49967d81e152dc84cab5199c40dc9e24"
+  integrity sha512-JUz/nGg5LzGx9685FwLtTn6rRf4HQtxqTLurxEXHMfjXJDf0mMmdBBOmFc8rr12vFOUAq/r/TFFXzkKUz8m8Yw==
   dependencies:
     "@emotion/core" "^10.0.14"
     "@emotion/styled" "^10.0.14"
