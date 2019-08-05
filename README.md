@@ -33,13 +33,26 @@ Read [introductory post on DEV.to](https://dev.to/ekafyi/make-a-landing-page-for
 
 ### Option A: Use the starter to create a _new_ site
 
-🚧 IN PROGRESS 🚧
+```sh
+# create a new site at the directory "my-band-site"
+gatsby new my-band-site https://github.com/ekafyi/starter-musician-theme
+
+# go to the site directory
+cd my-band-site
+
+# start your site
+gatsby develop
+```
 
 ### Option B: Manually add to your existing site
 
 ```sh
 npm install --save gatsby-theme-musician
-# or
+```
+
+or
+
+```sh
 yarn add gatsby-theme-musician
 ```
 
@@ -112,6 +125,7 @@ content
 │   ├── favicon.png
 │   └── placeholder.png
 ├── releases.yml
+├── sample-page.mdx
 └── shows.yml
 ```
 
