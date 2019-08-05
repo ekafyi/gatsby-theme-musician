@@ -1,34 +1,29 @@
-import Layout from "gatsby-theme-musician/src/components/layout"
-
-export default Layout
-
-<!-- Start editing here -->
-
-<Banner />
+<Banner bgOverlay="linear-gradient(30deg, #3e009b 40%, #2B7CDD 90%, #11D3FF 100%)" />
 
 <Container>
 
-**This is a real website of a fictional group called The Undefined.** It is meant to demonstrate a Gatsby theme called [gatsby-theme-musician](https://github.com/ekafyi/gatsby-theme-musician). For more information, please [read this introductory post](https://dev.to/ekafyi/make-a-landing-page-for-your-band-in-30-minutes-with-gatsby-theme-musician-2a0d-temp-slug-3674651/edit). Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque luctus ex ut augue fermentum, et semper sapien scelerisque. Sed tempor turpis id pharetra venenatis.
+**This is a website of a fictional group called The Undefined.** It is meant to demonstrate a Gatsby theme called [gatsby-theme-musician](https://github.com/ekafyi/gatsby-theme-musician). For more information, please [read this introductory post](https://dev.to/ekafyi/make-a-landing-page-for-your-band-in-30-minutes-with-gatsby-theme-musician-2a0d-temp-slug-3674651/edit) or click the button below.
 
-Photo credits:
+<div className="text-center">
+  <a
+    href="https://github.com/ekafyi/gatsby-theme-musician"
+    className="gtm-button"
+    rel="external"
+  >
+    Get the theme
+  </a>
+</div>
+
+<Youtube url="https://www.youtube.com/watch?v=GBUCmMxmup0" />
+
+<div style={{ marginBottom: 24 }}>
+Credits:
 
 - Banner photo by [fabio](https://unsplash.com/@fabioha)
-- Releases artwork photos by [Cassi Josh](https://unsplash.com/@cassi_josh), [Josh Rose](https://unsplash.com/@joshsrose) , and [Ruvim Noga](https://unsplash.com/@ruvimnogaphoto)
+- Releases artwork images by [Cassi Josh](https://unsplash.com/@cassi_josh), [Josh Rose](https://unsplash.com/@joshsrose), and [Ruvim Noga](https://unsplash.com/@ruvimnogaphoto)
+- Songs in [the video](https://www.youtube.com/watch?v=GBUCmMxmup0) belong to their rightful owners. But if this band _did exist_, I imagine they'd sound like that.
 
-<Box textAlign="center">
-
-Vestibulum at dui at ex mollis aliquet. <br/>
-Pellentesque consequat tortor ac sapien vestibulum, nec tincidunt.
-
-<p>&nbsp;</p>
-
-<a href="https://github.com/ekafyi/gatsby-theme-musician" rel="external" style={{ textDecoration: 'none', padding: "1rem 2rem", border: '2px solid' }}><strong>Learn More</strong></a>
-
-</Box>
-
-<p>&nbsp;</p>
-
-<Youtube url="https://www.youtube.com/watch?v=dQw4w9WgXcQ" />
+</div>
 
 <Shows shows={props.shows} />
 
@@ -36,7 +31,7 @@ Pellentesque consequat tortor ac sapien vestibulum, nec tincidunt.
 
 ## Contact
 
-<Box textAlign="center" id="contact">
+<div id="contact" className="text-center">
 
 hello@bandname.com
 
@@ -44,6 +39,6 @@ hello@bandname.com
 
 **Press:** +6281234567890
 
-</Box>
+</div>
 
 </Container>
