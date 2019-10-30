@@ -53,7 +53,7 @@ const ShowItem = ({ id, name, date, location, info_url, map_url }) => {
               <>
                 {" "}
                 &middot;{" "}
-                <Styled.a href={info_url} rel="external nofollow">
+                <Styled.a href={map_url} rel="external nofollow">
                   <strong>Map</strong>
                 </Styled.a>
               </>
