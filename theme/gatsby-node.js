@@ -1,6 +1,5 @@
 const fs = require(`fs-extra`)
 const path = require(`path`)
-const mkdirp = require(`mkdirp`)
 const { createFilePath } = require("gatsby-source-filesystem")
 
 // Customizable theme options we only need to check once
@@ -33,7 +32,7 @@ exports.onPreBootstrap = ({ store }, themeOptions) => {
 
   dirs.forEach(dir => {
     if (!fs.existsSync(dir)) {
-      mkdirp.sync(dir)
+      fs.ensureDirSync(dir, { recursive: true })
     }
   })
 
