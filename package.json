@@ -2,14 +2,9 @@
   "private": true,
   "workspaces": [
     "theme",
-    "examples/site-basic-local"
+    "example-minimal"
   ],
   "scripts": {
     "lint": "eslint --ext .js,.jsx --ignore-pattern public ."
-  },
-  "devDependencies": {
-    "eslint": "^6.1.0",
-    "eslint-config-gatsby-standard": "^2.2.0",
-    "eslint-plugin-jsx-a11y": "^6.2.3"
   }
 }

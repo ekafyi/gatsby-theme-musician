@@ -35,10 +35,10 @@ const SEO = ({ meta, pageTitle, pageDescription, url, twitterCardType }) => {
 
   const socialImg = useSiteMetadata().socialImg
   let imagePath
-  if (socialImg) {
-    const filePath = socialImg.resize.src
-    imagePath = useSiteMetadata().siteUrl + filePath
-  }
+  // if (socialImg) {
+  const filePath = socialImg.resize.src
+  imagePath = useSiteMetadata().siteUrl + filePath
+  // }
 
   /**
    * Prepare custom data from YAML config files
@@ -87,9 +87,9 @@ const SEO = ({ meta, pageTitle, pageDescription, url, twitterCardType }) => {
   }
 
   let lang = "en"
-  if (hasObjectAndLength(useSiteMetadata(), "site_language")) {
-    lang = useSiteMetadata().site_language
-  }
+  // if (hasObjectAndLength(useSiteMetadata(), "site_language")) {
+  //   lang = useSiteMetadata().site_language
+  // }
 
   /**
    * Populate our JSON-LD structured data

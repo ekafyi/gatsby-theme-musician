@@ -126,38 +126,38 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
 
-  // Create Landing page
-  createPage({
-    path: basePath,
-    component: LandingTemplate,
-    context: {
-      isBasePath: true,
-    },
-  })
+  // // Create Landing page
+  // createPage({
+  //   path: basePath,
+  //   component: LandingTemplate,
+  //   context: {
+  //     isBasePath: true,
+  //   },
+  // })
 
-  // Create pages from all MDX files _except_ Landing page
-  const result = await graphql(`
-    {
-      allMdx(
-        filter: {
-          fileAbsolutePath: { regex: "/^((?!artist-landing-page.).)*$/" }
-        }
-      ) {
-        edges {
-          node {
-            body
-            excerpt
-            fields {
-              slug
-            }
-            frontmatter {
-              title
-            }
-          }
-        }
-      }
-    }
-  `)
+  // // Create pages from all MDX files _except_ Landing page
+  // const result = await graphql(`
+  //   {
+  //     allMdx(
+  //       filter: {
+  //         fileAbsolutePath: { regex: "/^((?!artist-landing-page.).)*$/" }
+  //       }
+  //     ) {
+  //       edges {
+  //         node {
+  //           body
+  //           excerpt
+  //           fields {
+  //             slug
+  //           }
+  //           frontmatter {
+  //             title
+  //           }
+  //         }
+  //       }
+  //     }
+  //   }
+  // `)
 
   if (result.errors) {
     reporter.panic(result.errors)
@@ -166,15 +166,15 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   const { allMdx } = result.data
   const pages = allMdx.edges
 
-  // Create a page for each Post
-  pages.forEach(({ node: page }, index) => {
-    const { slug } = page.fields
-    createPage({
-      path: slug,
-      component: MdxTemplate,
-      context: {
-        ...page,
-      },
-    })
-  })
+  // // Create a page for each Post
+  // pages.forEach(({ node: page }, index) => {
+  //   const { slug } = page.fields
+  //   createPage({
+  //     path: slug,
+  //     component: MdxTemplate,
+  //     context: {
+  //       ...page,
+  //     },
+  //   })
+  // })
 }
