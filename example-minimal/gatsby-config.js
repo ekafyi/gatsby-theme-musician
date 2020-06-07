@@ -6,12 +6,5 @@
 
 module.exports = {
   /* Your site config here */
-  plugins: [
-    // {
-    //   resolve: "gatsby-theme-musician",
-    //   options: {
-    //     pwaName: "The Undefined",
-    //   },
-    // },
-  ],
+  plugins: [],
 }
