@@ -2,37 +2,41 @@ const fs = require(`fs-extra`)
 const path = require(`path`)
 const { createFilePath } = require("gatsby-source-filesystem")
 
-// Customizable theme options we only need to check once
-let basePath
-let contentPath
+// Define customizable theme options we only need to check once
+let basePath // URL path for landing page (default `/`)
+let contentPath // Directory containing theme files (default `content`)
 
-// Not a theme option, hardcoded to make it easier to shadow files
-let configPath = "src/gatsby-theme-musician/config"
+// Define template components
+const MusicianLandingTemplate = require.resolve(`./src/templates/new-landing`)
+const MusicianPageTemplate = require.resolve(`./src/templates/new-mdx-page`)
 
-// Templates are data-fetching wrappers that import components
-const LandingTemplate = require.resolve(`./src/templates/landing`)
-const MdxTemplate = require.resolve(`./src/templates/mdx-page`)
+// Define uncustomizable theme settings
+const configPath = "src/gatsby-theme-musician/config" // Path where we will copy user-facing theme configuration files (artist detail, metadata, etc)
+const landingFileName = "artist-landing-page.mdx" // Landing page MDX file name
 
 /**
  * Make sure the site has necessary directories and files.
  * Called once Gatsby has initialized itself and is ready to bootstrap your site.
+ *
+ * https://www.gatsbyjs.org/tutorial/building-a-theme/#create-a-data-directory-using-the-onprebootstrap-lifecycle
  */
-
 exports.onPreBootstrap = ({ store }, themeOptions) => {
   const { program } = store.getState()
 
   basePath = themeOptions.basePath || `/`
   contentPath = themeOptions.contentPath || `content`
 
-  // Create theme directories in site
   const dirs = [
     path.join(program.directory, contentPath),
     path.join(program.directory, configPath),
   ]
 
+  // Create theme directories in site
   dirs.forEach(dir => {
     if (!fs.existsSync(dir)) {
-      fs.ensureDirSync(dir, { recursive: true })
+      fs.ensureDirSync(dir, {
+        recursive: true,
+      })
     }
   })
 
@@ -54,13 +58,12 @@ exports.onPreBootstrap = ({ store }, themeOptions) => {
 }
 
 /**
- * Customize GraphQL Schema to enable nullable (empty) fields
+ * Customize GraphQL Schema to setup our custom types.
  *
- * https://www.gatsbyjs.org/docs/schema-customization
+ * API: https://www.gatsbyjs.org/docs/node-apis/#createSchemaCustomization
+ * Explanation: https://www.gatsbyjs.org/docs/schema-customization
  */
-
 exports.createSchemaCustomization = ({ actions }) => {
-  const { createTypes } = actions
   const typeDefs = `
     type ReleasesYaml implements Node {
       title: String!
@@ -73,7 +76,6 @@ exports.createSchemaCustomization = ({ actions }) => {
       name: String!
       url: String!
     }
-
     type ShowsYaml implements Node @dontInfer {
       name: String!
       date: Date!
@@ -82,36 +84,47 @@ exports.createSchemaCustomization = ({ actions }) => {
       map_url: String
     }
   `
-  createTypes(typeDefs)
+  actions.createTypes(typeDefs)
 }
 
 /**
- * Create fields for page slugs and source
+ * When a node is created, extend it and programmatically add a "slug" field, which tells Gatsby the URL to render to.
  *
- * https://www.gatsbyjs.org/docs/node-apis/#onCreateNode
+ * API: https://www.gatsbyjs.org/docs/node-apis/#onCreateNode
+ * Explanation: https://www.gatsbyjs.org/docs/mdx/programmatically-creating-pages/#generate-slugs
  */
-
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
 
-  // Make sure it's an MDX node
   if (node.internal.type !== `Mdx`) {
-    return
+    return // Make sure it's an MDX node
   }
 
-  // Create source field (according to contentPath)
+  /**
+   * We define the condition for processing the nodes. In this case, we only
+   * process MDX nodes from our "content" directory to pass to createPages().
+   *
+   * https://www.gatsbyjs.org/docs/actions/#createNodeField
+   */
   const fileNode = getNode(node.parent)
   const source = fileNode.sourceInstanceName
 
-  if (node.internal.type === `Mdx` && source === contentPath) {
-    const slug = createFilePath({
+  if (source === contentPath) {
+    // eg. If we have "content/sample-page.mdx", define the slug path "/sample-page"
+    let slug = createFilePath({
       node: fileNode,
       getNode,
       basePath: contentPath,
     })
+    // Set custom slug path for Landing Page to use basePath (default `/`)
+    if (fileNode.base === landingFileName) {
+      slug = basePath
+    }
+    // Add a field called "slug" with the above value (eg. "/sample-page"),
+    // which is then available in createPages (the "fields" node).
     createNodeField({
-      name: "slug",
       node,
+      name: "slug",
       value: slug,
     })
   }
@@ -126,55 +139,42 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
 
-  // // Create Landing page
-  // createPage({
-  //   path: basePath,
-  //   component: LandingTemplate,
-  //   context: {
-  //     isBasePath: true,
-  //   },
-  // })
-
-  // // Create pages from all MDX files _except_ Landing page
-  // const result = await graphql(`
-  //   {
-  //     allMdx(
-  //       filter: {
-  //         fileAbsolutePath: { regex: "/^((?!artist-landing-page.).)*$/" }
-  //       }
-  //     ) {
-  //       edges {
-  //         node {
-  //           body
-  //           excerpt
-  //           fields {
-  //             slug
-  //           }
-  //           frontmatter {
-  //             title
-  //           }
-  //         }
-  //       }
-  //     }
-  //   }
-  // `)
+  const result = await graphql(`
+    query {
+      allMdx {
+        nodes {
+          id
+          fields {
+            slug
+          }
+          parent {
+            ... on File {
+              sourceInstanceName
+            }
+          }
+        }
+      }
+    }
+  `)
 
   if (result.errors) {
-    reporter.panic(result.errors)
+    reporter.panicOnBuild(`Error loading gatsby-theme-musician`, result.errors)
+    return
   }
 
-  const { allMdx } = result.data
-  const pages = allMdx.edges
-
-  // // Create a page for each Post
-  // pages.forEach(({ node: page }, index) => {
-  //   const { slug } = page.fields
-  //   createPage({
-  //     path: slug,
-  //     component: MdxTemplate,
-  //     context: {
-  //       ...page,
-  //     },
-  //   })
-  // })
+  // Create pages from our content directory
+  const pages = result.data.allMdx.nodes.filter(
+    page => page.parent.sourceInstanceName === contentPath
+  )
+  pages.forEach(page => {
+    const isBasePath = page.fields.slug === basePath
+    createPage({
+      path: page.fields.slug,
+      component: isBasePath ? MusicianLandingTemplate : MusicianPageTemplate,
+      context: {
+        ...page,
+        isBasePath, // Used for navigation in header component
+      },
+    })
+  })
 }
