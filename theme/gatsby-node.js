@@ -7,8 +7,7 @@ let basePath // URL path for landing page (default `/`)
 let contentPath // Directory containing theme files (default `content`)
 
 // Define template components
-const MusicianLandingTemplate = require.resolve(`./src/templates/new-landing`)
-const MusicianPageTemplate = require.resolve(`./src/templates/new-mdx-page`)
+const MusicianPageTemplate = require.resolve(`./src/templates/page`)
 
 // Define uncustomizable theme settings
 const configPath = "src/gatsby-theme-musician/config" // Path where we will copy user-facing theme configuration files (artist detail, metadata, etc)
@@ -170,9 +169,9 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     const isBasePath = page.fields.slug === basePath
     createPage({
       path: page.fields.slug,
-      component: isBasePath ? MusicianLandingTemplate : MusicianPageTemplate,
+      component: MusicianPageTemplate,
       context: {
-        ...page,
+        // ...page, // Not necessary for now
         isBasePath, // Used for navigation in header component
       },
     })
