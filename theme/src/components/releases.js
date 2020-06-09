@@ -1,56 +1,47 @@
 /** @jsx jsx */
-// eslint-disable-next-line no-unused-vars
-import React from "react"
-import { jsx } from "theme-ui"
+import { jsx, Grid } from "theme-ui"
+import PropTypes from "prop-types"
+import LandingSection from "./landing-section"
+import useReleasesShowsData from "../hooks/use-releases-shows-data"
 
-import useSiteMetadata from "../use-site-metadata"
-import Grids from "./grids"
-import LandingSectionTitle from "./landing-section-title"
-import ReleaseItem from "./release-item"
+const defaultTitle = "Releases"
+const defaultEmpty = "No releases yet"
 
-const Releases = ({ releases = [], columns }) => {
-  // Use text label from YAML config
-  let sectionTitle = "Releases"
-  // const { textLabels } = useSiteMetadata()
-  // if (typeof textLabels.section_releases_title !== "undefined") {
-  //   if (textLabels.section_releases_title.length) {
-  //     sectionTitle = textLabels.section_releases_title
-  //   }
-  // }
-
-  // Define custom grid template only if not defined from the component
-  let customGridTemplateColumns
-  if (!columns) {
-    customGridTemplateColumns = [null, "repeat(auto-fit,minmax(14em,1fr))"]
-  }
-
+const Releases = ({
+  children,
+  releases,
+  title = defaultTitle,
+  empty = defaultEmpty,
+}) => {
+  // `releases` props is now optional; the fallback/default data comes from `useReleasesShowsData` hook.
+  const yamlReleases = useReleasesShowsData().releases
+  const renderReleases = releases || yamlReleases
   return (
-    <section
-      id="releases"
-      sx={{
-        variant: "layout.landingSection",
-      }}
-    >
-      <LandingSectionTitle>{sectionTitle}</LandingSectionTitle>
-      <Grids
-        as="ol"
-        columns={columns}
-        gap="calc(1em + 1vw)"
-        sx={{
-          gridTemplateColumns: customGridTemplateColumns,
-        }}
-      >
-        {releases.length > 0 &&
-          releases.map(node => {
+    <LandingSection title={title}>
+      {children || ""}
+      {renderReleases.length > 0 ? (
+        <Grid gap={2} columns={[2, null, 4]}>
+          {renderReleases.map(node => {
             return (
-              <li key={node.id}>
-                <ReleaseItem {...node} />
-              </li>
+              <article key={node.id}>
+                asdsadas
+                {/* <ReleaseItem {...node} /> */}
+              </article>
             )
           })}
-      </Grids>
-    </section>
+        </Grid>
+      ) : (
+        <div sx={{ variant: "components.landing.empty" }}>{empty || ""}</div>
+      )}
+    </LandingSection>
   )
 }
 
 export default Releases
+
+Releases.propTypes = {
+  children: PropTypes.any,
+  releases: PropTypes.any,
+  title: PropTypes.string, // required; default value passed in argument
+  empty: PropTypes.string,
+}

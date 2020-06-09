@@ -29,8 +29,9 @@ const useReleasesShowsData = () => {
     }
   `
 
-  const data = useStaticQuery(query)
-  return data
+  const shows = useStaticQuery(query).shows.nodes
+  const releases = useStaticQuery(query).releases.nodes
+  return {shows, releases}
 }
 
 export default useReleasesShowsData

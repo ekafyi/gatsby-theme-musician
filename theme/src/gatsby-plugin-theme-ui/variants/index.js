@@ -8,7 +8,7 @@ import banner from "./banner"
 import footer from "./footer"
 import header from "./header"
 import heroImg from "./hero-img"
-import landingSection from "./landing-section"
+import landing from "./landing"
 import showItem from "./show-item"
 
 // Shared/Utility
@@ -27,7 +27,7 @@ export default {
     footer,
     header,
     heroImg,
-    landingSection,
+    landing,
     showItem,
   },
 

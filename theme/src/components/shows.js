@@ -1,39 +1,46 @@
 /** @jsx jsx */
-// eslint-disable-next-line no-unused-vars
-import React from "react"
-import { jsx } from "theme-ui"
+import { jsx, Grid } from "theme-ui"
+import PropTypes from "prop-types"
+import LandingSection from "./landing-section"
+import useReleasesShowsData from "../hooks/use-releases-shows-data"
 
-import useSiteMetadata from "../use-site-metadata"
-import LandingSectionTitle from "./landing-section-title"
-import ShowItem from "./show-item"
+const defaultTitle = "Shows"
+const defaultEmpty = "No shows yet"
 
-const Shows = ({ shows = [] }) => {
-  // Use text label from YAML user config
-  let sectionTitle = "Shows"
-  // const { textLabels } = useSiteMetadata()
-  // if (typeof textLabels.section_shows_title !== "undefined") {
-  //   if (textLabels.section_shows_title.length) {
-  //     sectionTitle = textLabels.section_shows_title
-  //   }
-  // }
+const Shows = ({
+  children,
+  shows,
+  title = defaultTitle,
+  empty = defaultEmpty,
+}) => {
+  // `shows` props is now optional; the fallback/default data comes from hook.
+  const yamlShows = useReleasesShowsData().shows
+  const renderShows = shows || yamlShows
 
   return (
-    <section id="shows" sx={{ variant: "layout.landingSection" }}>
-      <LandingSectionTitle>{sectionTitle}</LandingSectionTitle>
-      <ol
-        sx={{
-          m: 0,
-          p: 0,
-          listStyle: "none",
-        }}
-      >
-        {shows.length > 0 &&
-          shows.map(node => {
-            return <ShowItem {...node} key={node.id} />
-          })}
-      </ol>
-    </section>
+    <LandingSection title={title}>
+      {children || ""}
+      {renderShows.length > 0 ? (
+        renderShows.map(node => {
+          return (
+            <article key={node.id}>
+              asdsadas
+              {/* <ShowItem {...node} /> */}
+            </article>
+          )
+        })
+      ) : (
+        <div sx={{ variant: "components.landing.empty" }}>{empty || ""}</div>
+      )}
+    </LandingSection>
   )
 }
 
 export default Shows
+
+Shows.propTypes = {
+  children: PropTypes.any,
+  shows: PropTypes.any,
+  title: PropTypes.string, // required; default value passed in argument
+  empty: PropTypes.string,
+}

@@ -6,6 +6,13 @@ export const hasObjectAndLength = (parentObj, childObjKey) => {
   } else return false
 }
 
+export const slugify = (string = "") => {
+  return string
+    .toLowerCase()
+    .replace(/[^\w ]+/g, "")
+    .replace(/ +/g, "-")
+}
+
 export const artistObject = {
   name: "",
   tagline: "",
