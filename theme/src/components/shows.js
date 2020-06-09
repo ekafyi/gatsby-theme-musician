@@ -10,12 +10,12 @@ import ShowItem from "./show-item"
 const Shows = ({ shows = [] }) => {
   // Use text label from YAML user config
   let sectionTitle = "Shows"
-  const { textLabels } = useSiteMetadata()
-  if (typeof textLabels.section_shows_title !== "undefined") {
-    if (textLabels.section_shows_title.length) {
-      sectionTitle = textLabels.section_shows_title
-    }
-  }
+  // const { textLabels } = useSiteMetadata()
+  // if (typeof textLabels.section_shows_title !== "undefined") {
+  //   if (textLabels.section_shows_title.length) {
+  //     sectionTitle = textLabels.section_shows_title
+  //   }
+  // }
 
   return (
     <section id="shows" sx={{ variant: "layout.landingSection" }}>

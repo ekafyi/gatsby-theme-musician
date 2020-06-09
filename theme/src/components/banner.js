@@ -20,7 +20,10 @@ const BannerContent = ({ title, tagline }) => (
 )
 
 const Banner = ({ children, bgOverlay, color }) => {
-  const { title, artist, bannerImg } = useSiteMetadata()
+  // const { title, artist, bannerImg } = useSiteMetadata()
+  const title = ""
+  const artist = {}
+  const bannerImg = null
 
   if (bannerImg) {
     additionalStyles["flexDirection"] = "column"

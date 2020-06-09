@@ -1,10 +1,20 @@
 import React from "react"
 import { MDXProvider } from "@mdx-js/react"
+import { Box, Button, Container, Flex, Grid } from "theme-ui"
 
-import NewLayout from "../components/new-layout"
+import Layout from "./layout"
+import MdxLink from "../components/mdx-link"
 
 const components = {
-  wrapper: props => <NewLayout {...props} />,
+  // Theme UI Components
+  Box,
+  Button,
+  Container,
+  Flex,
+  Grid,
+  //
+  wrapper: props => <Layout {...props} />,
+  a: props => <MdxLink {...props} />,
 }
 
 export default props => (

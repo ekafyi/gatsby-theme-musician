@@ -13,6 +13,7 @@ module.exports = options => {
       title: "Gatsby Theme Musician",
       description: "",
       siteUrl: "https://github.com/ekafyi/eka-gatsby-playground",
+      siteLanguage: "en",
     },
     plugins: [
       `gatsby-transformer-sharp`,

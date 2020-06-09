@@ -1,12 +1,9 @@
 /** @jsx jsx */
-// eslint-disable-next-line no-unused-vars
-import React from "react"
 import { jsx, Styled } from "theme-ui"
 import { Link } from "gatsby"
 import isAbsoluteURL from "is-absolute-url"
 
-// !TODO refactor
-// This is a copy from nav-link.js without the style
+// DO NOT style here; style in theme-ui's theme.styles.a.
 
 export default ({ href, ...props }) => {
   // if external, use regular anchor element

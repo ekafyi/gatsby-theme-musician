@@ -4,8 +4,8 @@ artist:
   # seo_title:
   # seo_description:
   # contact_twitter_username:
-  # contact_phone: 
-  # contact_email: 
+  # contact_phone:
+  # contact_email:
 
 social:
   - name: Facebook
@@ -18,5 +18,3 @@ social:
     url: https://youtube.com
   - name: Spotify
     url: https://spotify.com
-
-site_language: en

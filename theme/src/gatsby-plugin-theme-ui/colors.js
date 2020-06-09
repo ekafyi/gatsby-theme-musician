@@ -7,13 +7,12 @@ const colors = {
   accent: "#07c",
   muted: "#737373",
 
-  // Additional colour names
+  // Additional gatsby-theme-musician colours
   bgAccent: "rgba(0,0,0,0.1)",
   bgOpaque: "rgba(255,255,255,0.9)",
 }
 
-colors.bgGradient = `linear-gradient(150deg, ${colors.accent} 10%, ${
-  colors.text
-} 60%, ${colors.text} 100%)`
+// Used for banner
+colors.bgGradient = `linear-gradient(150deg, ${colors.accent} 10%, ${colors.text} 60%, ${colors.text} 100%)`
 
 export default colors

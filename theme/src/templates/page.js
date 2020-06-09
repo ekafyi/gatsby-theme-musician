@@ -8,9 +8,8 @@ import { MDXRenderer } from "gatsby-plugin-mdx"
 import useReleasesShowsData from "../hooks/use-releases-shows-data"
 // import { MDXProvider } from "@mdx-js/react" // use for debugging
 
-const PageTemplate = ({ data, pageContext }) => {
-  const { isBasePath } = pageContext // used for header navigation component
-
+const PageTemplate = ({ data, pageContext, location }) => {
+  const { isBasePath } = pageContext
   const { releases, shows } = useReleasesShowsData()
 
   return (
@@ -18,7 +17,8 @@ const PageTemplate = ({ data, pageContext }) => {
       <MDXRenderer
         releases={releases || []}
         shows={shows || []}
-        isBasePath={isBasePath}
+        isBasePath={isBasePath} // Used for header navigation
+        location={location} // Used for SEO
       >
         {data.mdx.body}
       </MDXRenderer>

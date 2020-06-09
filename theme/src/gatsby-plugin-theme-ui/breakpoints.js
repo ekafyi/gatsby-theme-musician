@@ -1,9 +1,7 @@
-const breakpoints = [
-  "26em", // 384x
-  "45em", // 640px
-  "64em", // 1024px
-  "90em", // 1440px
-  "120em", // 1920px
+export default [
+  "40em", // 640
+  "48em", // 768
+  "64em", // 1024
+  "80em", // 1280
+  "120em", // 1920
 ]
-
-export default breakpoints

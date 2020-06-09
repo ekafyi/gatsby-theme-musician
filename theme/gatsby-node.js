@@ -18,6 +18,7 @@ const landingFileName = "artist-landing-page.mdx" // Landing page MDX file name
  * Called once Gatsby has initialized itself and is ready to bootstrap your site.
  *
  * https://www.gatsbyjs.org/tutorial/building-a-theme/#create-a-data-directory-using-the-onprebootstrap-lifecycle
+ * https://www.gatsbyjs.org/docs/themes/conventions/#initializing-required-directories
  */
 exports.onPreBootstrap = ({ store }, themeOptions) => {
   const { program } = store.getState()
@@ -171,7 +172,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       path: page.fields.slug,
       component: MusicianPageTemplate,
       context: {
-        // ...page, // Not necessary for now
+        id: page.id,
         isBasePath, // Used for navigation in header component
       },
     })

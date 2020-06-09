@@ -48,7 +48,7 @@ const ReleaseItem = ({ id, title, date, release_type, image, links }) => {
       </Styled.h4>
       <div
         className="GtmReleaseItem__date"
-        sx={{ variant: "textStyles.itemSubheading" }}
+        sx={{ variant: "text.itemSubheading" }}
       >
         {new Date(date).toLocaleDateString("en-GB", {
           year: "numeric",
@@ -56,7 +56,7 @@ const ReleaseItem = ({ id, title, date, release_type, image, links }) => {
         {release_type && <>&nbsp;&middot;&nbsp;{release_type}</>}
       </div>
       {links && (
-        <div sx={{ variant: "textStyles.itemSubheading", mt: 2 }}>
+        <div sx={{ variant: "text.itemSubheading", mt: 2 }}>
           Listen:&nbsp;
           <Styled.ul
             sx={{

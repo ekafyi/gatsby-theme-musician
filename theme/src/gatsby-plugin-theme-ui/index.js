@@ -1,52 +1,41 @@
-import breakpoints from "./breakpoints"
-import colors from "./colors"
-import componentStyles from "./componentStyles"
-import elementStyles from "./elementStyles"
-// import helpers from "./helpers"
-import layoutStyles from "./layoutStyles"
-// import spacing from "./spacing"
-import textStyles from "./textStyles"
-import typography from "./typography"
-
 /**
- * Theme Specification
+ * Create a theme object based on the Theme Specification.
  *
  * https://theme-ui.com/theme-spec
+ *
+ * Theme object properties consist of:
+ * - breakpoints - self-explanatory
+ * - scales - objects/arrays of values for related CSS properties (specified keys only; we CANNOT add our own)
+ * - variants - style objects for "components" (any user-defined object names)
+ * - styles - style objects for HTML elements for MDX (specified elements only; we CANNOT add our own)
  */
 
-const theme = {
-  // Colors
+// Misc
+import breakpoints from "./breakpoints"
 
-  initialColorMode: `light`,
-  useCustomProperties: true,
-  colors: {
-    ...colors,
-  },
+// 1) scales
+import colors from "./colors"
+import { fonts, fontSizes, fontWeights, lineHeights } from "./typography"
+import sizes from "./sizes"
+import space from "./space"
 
-  // Typography & Text
+// 2) variants
+import variants from "./variants"
 
-  ...typography,
-  textStyles,
+// 3) styles
+import styles from "./styles"
 
-  // Element Styles
+// = = =
 
-  styles: {
-    ...elementStyles,
-  },
-
-  // Breakpoints
-
-  breakpoints: breakpoints,
-
-  /**
-   * Non-Typography Variants
-   *
-   * We can use any key name as long as they are
-   * referenced correctly from the component.
-   */
-
-  layout: { ...layoutStyles },
-  components: { ...componentStyles },
+export default {
+  breakpoints,
+  colors,
+  fonts,
+  fontSizes,
+  fontWeights,
+  lineHeights,
+  sizes,
+  space,
+  ...variants,
+  styles,
 }
-
-export default theme

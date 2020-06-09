@@ -8,12 +8,13 @@ const useSiteMetadata = () => {
           title
           description
           siteUrl
+          siteLanguage
         }
       }
     }
   `
 
-  return useStaticQuery(query)
+  return useStaticQuery(query).site.siteMetadata
 }
 
 export default useSiteMetadata

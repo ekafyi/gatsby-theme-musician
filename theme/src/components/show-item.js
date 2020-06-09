@@ -47,7 +47,7 @@ const ShowItem = ({ id, name, date, location, info_url, map_url }) => {
           >
             {name}
           </Styled.h4>
-          <div sx={{ variant: "textStyles.itemSubheading" }}>
+          <div sx={{ variant: "text.itemSubheading" }}>
             {location}
             {map_url && (
               <>

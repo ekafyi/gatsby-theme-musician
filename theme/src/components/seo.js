@@ -1,131 +1,56 @@
-/**
- * SEO component that queries for data
- *
- * https://www.gatsbyjs.org/docs/seo/
- */
-
 import React from "react"
 import PropTypes from "prop-types"
-import Helmet from "react-helmet"
-import useSiteMetadata from "../use-site-metadata"
+import { Helmet } from "react-helmet"
+import useMusicianConfig from "../hooks/use-musician-config"
+import useSiteMetadata from "../hooks/use-site-metadata"
+import { getStructuredData, getTwitterMeta, getImageMeta } from "../utils"
 
-// Prepare structured data object
-const schema = {
-  "@context": "http://schema.org",
-  "@type": "MusicGroup",
-  name: "",
-  url: "",
-  image: [],
-  sameAs: [],
-}
-
-// Helper function to check user's YAML config
-function hasObjectAndLength(parentObj, childObjKey) {
-  if (typeof parentObj[childObjKey] !== "undefined") {
-    if (parentObj[childObjKey].length) {
-      return true
-    } else return false
-  } else return false
-}
-
-const SEO = ({ meta, pageTitle, pageDescription, url, twitterCardType }) => {
-  /**
-   * Prepare image from user's "content" folder
-   */
-
-  const socialImg = useSiteMetadata().socialImg
-  let imagePath
-  // if (socialImg) {
-  const filePath = socialImg.resize.src
-  imagePath = useSiteMetadata().siteUrl + filePath
-  // }
+const SEO = ({ pageTitle, pageDescription, pageUrl, pathname }) => {
+  const { artist, social, images } = useMusicianConfig()
+  const { title, description, siteUrl, siteLanguage } = useSiteMetadata()
 
   /**
-   * Prepare custom data from YAML config files
+   * Get url from... (order of preference)
+   * 1. pageUrl prop (user-defined)
+   * 2. siteMetadata.siteUrl + (optional) pathname
    */
+  const url = `${siteUrl}${pathname || ""}`
 
-  const artist = useSiteMetadata().artist
-
-  // siteTitle for SEO is taken from this order of preference:
-  // 1. Custom `seo_title` in YAML config file, if it exists
-  // 2. siteMetadata in user config, if it exists
-  // 3. Artist name in user config, if it exists
-  // 4. (if none exists) fallback to siteMetadata in theme config, "Gatsby Theme Musician"
-
-  const defaultConfigTitle = "Gatsby Theme Musician"
-  let siteTitle = useSiteMetadata().title
-  if (siteTitle === defaultConfigTitle && hasObjectAndLength(artist, "name")) {
-    siteTitle = artist.name
-  }
-  if (hasObjectAndLength(artist, "seo_title")) {
+  /**
+   * Get siteTitle from... (order of preference)
+   * 1. artist.seo_title from config
+   * 2. siteMetadata.title (only if user-defined)
+   * 3. artist.name from config
+   */
+  let siteTitle = title !== "Gatsby Theme Musician" ? title : artist.name
+  if (artist.seo_title) {
     siteTitle = artist.seo_title
   }
 
-  let siteDescription = useSiteMetadata().description
-  if (artist.hasOwnProperty("seo_description")) {
-    siteDescription = artist.seo_description
-  } else if (artist.hasOwnProperty("tagline")) {
-    siteDescription = artist.tagline
-  }
-
-  let miscMetaTwitter = []
-  if (artist.contact_twitter_username) {
-    const twitterName =
-      artist.contact_twitter_username.charAt(0) === "@"
-        ? artist.contact_twitter_username
-        : "@" + artist.contact_twitter_username
-    miscMetaTwitter = [
-      {
-        name: `twitter:site`,
-        content: twitterName,
-      },
-      {
-        name: `twitter:creator`,
-        content: twitterName,
-      },
-    ]
-  }
-
-  let lang = "en"
-  // if (hasObjectAndLength(useSiteMetadata(), "site_language")) {
-  //   lang = useSiteMetadata().site_language
-  // }
+  /**
+   * Get siteDescription from ... (order of preference)
+   * 1. artist.seo_description from config
+   * 2. siteMetadata.description
+   */
+  const siteDescription = artist.seo_description || description
 
   /**
-   * Populate our JSON-LD structured data
+   * Get socialImgPath from...
+   * 1. social image file
+   * 2. banner image file (fallback)
+   * If no image at all, image metadata will not be rendered by getImageMeta().
    */
-
-  schema.name = artist.name
-
-  schema.image[0] = imagePath
-
-  const social = useSiteMetadata().social
-  if (social.length) {
-    social.forEach((item, index) => {
-      if (hasObjectAndLength(item, "url")) {
-        schema.sameAs[index] = item.url
-      }
-    })
+  let socialImgPath = ""
+  if (images.socialImg || typeof fallbackSocialImg.resize !== "undefined") {
+    socialImgPath == socialImg || fallbackSocialImg.resize.src
   }
-
-  if (artist.contact_phone || artist.contact_email) {
-    const contactObject = {
-      "@type": "ContactPoint",
-      contactType: "sales",
-      telephone: artist.contact_phone.length ? artist.contact_phone : null,
-      email: artist.contact_email.length ? artist.contact_email : null,
-    }
-    schema.contactPoint = { ...contactObject }
-  }
-
-  // url
-
-  // end of data preparation
 
   return (
     <Helmet
       // Site language
-      htmlAttributes={{ lang }}
+      htmlAttributes={{
+        lang: siteLanguage,
+      }}
       // If page title is not provided, use this
       defaultTitle={siteTitle}
       // If component provides page title, use this with titleTemplate
@@ -135,8 +60,7 @@ const SEO = ({ meta, pageTitle, pageDescription, url, twitterCardType }) => {
       // Meta tags
       meta={[
         /**
-         * Title
-         * (OpenGraph, Twitter)
+         *Title (OpenGraph, Twitter)
          */
         {
           property: `og:title`,
@@ -148,8 +72,7 @@ const SEO = ({ meta, pageTitle, pageDescription, url, twitterCardType }) => {
         },
 
         /**
-         * Description
-         * (HTML meta, OpenGraph, Twitter)
+         * Description (HTML meta, OpenGraph, Twitter)
          */
         {
           name: `description`,
@@ -165,22 +88,12 @@ const SEO = ({ meta, pageTitle, pageDescription, url, twitterCardType }) => {
         },
 
         /**
-         * Image
-         * (OpenGraph, Twitter)
+         * Image (OpenGraph, Twitter)
          */
-
-        {
-          property: `og:image`,
-          content: imagePath || "",
-        },
-        {
-          name: `twitter:image`,
-          content: imagePath || "",
-        },
+        ...getImageMeta(socialImgPath),
 
         /**
-         * Other details
-         * (OpenGraph)
+         * Other (OpenGraph, Twitter)
          */
         {
           property: `og:type`,
@@ -192,45 +105,37 @@ const SEO = ({ meta, pageTitle, pageDescription, url, twitterCardType }) => {
         },
         {
           property: `og:locale`,
-          content: lang,
+          content: siteLanguage,
         },
         {
           property: `og:url`,
-          content: url,
+          content: pageUrl || url,
         },
-
-        /**
-         * Other details
-         * (Twitter)
-         */
-        {
-          name: `twitter:card`,
-          content: twitterCardType,
-        },
-        ...miscMetaTwitter,
+        ...getTwitterMeta(artist.contact_twitter_username || ""),
       ]}
     >
-      <script type="application/ld+json">{JSON.stringify(schema)}</script>
+      <script type="application/ld+json">
+        {JSON.stringify(
+          getStructuredData(
+            artist.name,
+            siteUrl,
+            socialImgPath,
+            social,
+            artist.contact_email,
+            artist.contact_phone
+          )
+        )}
+      </script>
     </Helmet>
   )
 }
 
-SEO.defaultProps = {
-  meta: [],
-  twitterCardType: "summary_large_image",
-}
-
 SEO.propTypes = {
-  meta: PropTypes.array,
   pageTitle: PropTypes.string,
   pageDescription: PropTypes.string,
-  url: PropTypes.string,
-  twitterCardType: PropTypes.oneOf([
-    "summary",
-    "summary_large_image",
-    "app",
-    "player",
-  ]),
+  pageUrl: PropTypes.string, // If no url is provided, we use metadata.siteUrl + pathname
+  pathname: PropTypes.string,
+  // meta: PropTypes.array, // Currently user cannot supply custom metadata array
 }
 
 export default SEO

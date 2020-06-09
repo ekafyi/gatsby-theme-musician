@@ -1,13 +1,15 @@
 /** @jsx jsx */
-// eslint-disable-next-line no-unused-vars
-import React from "react"
-import { Styled, jsx } from "theme-ui"
-
-import useSiteMetadata from "../use-site-metadata"
+import { Fragment } from "react"
+import { jsx } from "theme-ui"
 import Social from "./social"
+import useMusicianConfig from "../hooks/use-musician-config"
 
-export default ({ children }) => {
-  const { title, social } = useSiteMetadata()
+// Text to shadow
+import FooterCreditsText from "../texts/footer-credits"
+import FooterSocialText from "../texts/footer-social"
+
+export default () => {
+  const { social } = useMusicianConfig()
 
   let hasSocial = false
   if (social.length) {
@@ -19,41 +21,17 @@ export default ({ children }) => {
   }
 
   return (
-    <footer role="contentinfo" sx={{ variant: "layout.footer" }}>
+    <footer role="contentinfo" sx={{ variant: "components.footer" }}>
       {hasSocial && (
-        <>
-          <strong
-            className="GtmFooter__social-heading"
-            sx={{ variant: "styles.caps" }}
-          >
-            Follow &amp; Subscribe
-          </strong>
-          <div className="GtmFooter__social-wrapper">
+        <Fragment>
+          <FooterSocialText />
+          <div sx={{ variant: "components.footer.socialWrapper" }}>
             <Social />
           </div>
-        </>
+        </Fragment>
       )}
-      <hr sx={{ variant: "layout.footer.hr" }} />
-      {children ? (
-        <div sx={{ variant: "layout.footer.copyright" }}>{children}</div>
-      ) : (
-        <small sx={{ variant: "layout.footer.copyright" }}>
-          Copyright © {new Date().getFullYear()} {title}. All rights reserved.
-          <br />
-          Built with{" "}
-          <Styled.a href="https://gatsbyjs.org" rel="external nofollow">
-            Gatsby
-          </Styled.a>{" "}
-          and{" "}
-          <Styled.a
-            href="https://www.npmjs.com/package/gatsby-theme-musician"
-            rel="external nofollow"
-          >
-            gatsby-theme-musician
-          </Styled.a>
-          .
-        </small>
-      )}
+      <hr sx={{ variant: "components.footer.hr" }} />
+      <FooterCreditsText />
     </footer>
   )
 }

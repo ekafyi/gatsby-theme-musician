@@ -11,12 +11,12 @@ import ReleaseItem from "./release-item"
 const Releases = ({ releases = [], columns }) => {
   // Use text label from YAML config
   let sectionTitle = "Releases"
-  const { textLabels } = useSiteMetadata()
-  if (typeof textLabels.section_releases_title !== "undefined") {
-    if (textLabels.section_releases_title.length) {
-      sectionTitle = textLabels.section_releases_title
-    }
-  }
+  // const { textLabels } = useSiteMetadata()
+  // if (typeof textLabels.section_releases_title !== "undefined") {
+  //   if (textLabels.section_releases_title.length) {
+  //     sectionTitle = textLabels.section_releases_title
+  //   }
+  // }
 
   // Define custom grid template only if not defined from the component
   let customGridTemplateColumns

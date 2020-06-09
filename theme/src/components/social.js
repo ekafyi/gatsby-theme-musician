@@ -1,11 +1,9 @@
 /** @jsx jsx */
-// eslint-disable-next-line no-unused-vars
-import React from "react"
-import PropTypes from "prop-types"
+import { Fragment } from "react"
 import { jsx } from "theme-ui"
+import PropTypes from "prop-types"
 import VisuallyHidden from "@reach/visually-hidden"
-
-import useSiteMetadata from "../use-site-metadata"
+import useMusicianConfig from "../hooks/use-musician-config"
 import IconLink from "./icon-link"
 import Icon from "./icon-by-name"
 
@@ -17,7 +15,7 @@ const iconStyle = {
 }
 
 const Social = ({ data }) => {
-  const { social } = useSiteMetadata()
+  const { social } = useMusicianConfig()
 
   // Use YAML config values as default fallback
   if (!data.length) {
@@ -31,7 +29,7 @@ const Social = ({ data }) => {
   }
 
   return (
-    <>
+    <Fragment>
       {data.map((socialLink, index) => {
         if (socialLink.name) {
           return (
@@ -48,7 +46,7 @@ const Social = ({ data }) => {
           )
         } else return null
       })}
-    </>
+    </Fragment>
   )
 }
 

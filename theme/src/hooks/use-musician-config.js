@@ -3,22 +3,11 @@
  * optional images with specific file names in content directory.
  */
 import { graphql, useStaticQuery } from "gatsby"
-import { hasObjectAndLength } from "../utils"
+import { hasObjectAndLength, artistObject } from "../utils"
 
 // Import theme-specific config files
 import config from "../config/artist.yml"
 import navigation from "../config/navigation.yml"
-
-// Provide empty string as fallback
-const artistObject = {
-  name: "",
-  tagline: "",
-  seo_title: "",
-  seo_description: "",
-  contact_twitter_username: "",
-  contact_phone: "",
-  contact_email: "",
-}
 
 // = = =
 
@@ -30,15 +19,12 @@ const useMusicianConfig = () => {
 
   const social = hasObjectAndLength(config, "social") ? config.social : []
 
-  const siteLanguage = config.site_language || "en"
-
   const images = useStaticQuery(imgQuery)
 
   // Combine and return
   const data = {
     artist,
     social,
-    siteLanguage,
     images,
     navigation: navigation.navigation || [],
   }
@@ -52,6 +38,13 @@ const imgQuery = graphql`
     bannerImg: imageSharp(fluid: { src: { regex: "/artist-banner./" } }) {
       fluid(cropFocus: ATTENTION) {
         ...GatsbyImageSharpFluid_withWebp
+      }
+    }
+    fallbackSocialImg: imageSharp(
+      resize: { src: { regex: "/artist-banner./" } }
+    ) {
+      resize(width: 600, height: 300) {
+        src
       }
     }
     socialImg: imageSharp(resize: { src: { regex: "/artist-social./" } }) {
