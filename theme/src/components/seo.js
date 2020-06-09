@@ -42,8 +42,10 @@ const SEO = ({ pageTitle, pageDescription, pageUrl, pathname }) => {
    */
   const { socialImg, fallbackSocialImg } = images
   let socialImgPath = ""
-  if (socialImg || typeof fallbackSocialImg.resize !== "undefined") {
-    socialImgPath = socialImg || fallbackSocialImg.resize.src
+  if (socialImg) {
+    socialImgPath = socialImg
+  } else if (fallbackSocialImg) {
+    socialImgPath = fallbackSocialImg.resize.src
   }
 
   return (

@@ -2,7 +2,7 @@ import React from "react"
 import { MDXProvider } from "@mdx-js/react"
 import { Box, Button, Container, Flex, Grid } from "theme-ui"
 
-import { Layout, MdxLink, Releases, Shows } from "../components"
+import { Banner, Layout, MdxLink, Releases, Shows, Social } from "../components"
 
 const components = {
   // Theme UI Components
@@ -12,8 +12,10 @@ const components = {
   Flex,
   Grid,
   // Local components
+  Banner,
   Releases,
   Shows,
+  Social,
   //
   wrapper: props => <Layout {...props} />,
   a: props => <MdxLink {...props} />,

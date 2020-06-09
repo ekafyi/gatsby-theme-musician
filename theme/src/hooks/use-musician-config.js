@@ -36,7 +36,7 @@ export default useMusicianConfig
 const imgQuery = graphql`
   query MusicianConfigQuery {
     bannerImg: imageSharp(fluid: { src: { regex: "/artist-banner./" } }) {
-      fluid(cropFocus: ATTENTION) {
+      fluid(cropFocus: ATTENTION, maxHeight: 700) {
         ...GatsbyImageSharpFluid_withWebp
       }
     }

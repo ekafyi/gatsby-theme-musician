@@ -1,7 +1,8 @@
 /** @jsx jsx */
-import { jsx, Grid } from "theme-ui"
+import { jsx } from "theme-ui"
 import PropTypes from "prop-types"
 import LandingSection from "./landing-section"
+import ShowItem from "./show-item-new"
 import useReleasesShowsData from "../hooks/use-releases-shows-data"
 
 const defaultTitle = "Shows"
@@ -21,13 +22,8 @@ const Shows = ({
     <LandingSection title={title}>
       {children || ""}
       {renderShows.length > 0 ? (
-        renderShows.map(node => {
-          return (
-            <article key={node.id}>
-              asdsadas
-              {/* <ShowItem {...node} /> */}
-            </article>
-          )
+        renderShows.map(({ id, ...node }) => {
+          return <ShowItem key={id} {...node} />
         })
       ) : (
         <div sx={{ variant: "components.landing.empty" }}>{empty || ""}</div>

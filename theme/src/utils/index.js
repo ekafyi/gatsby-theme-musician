@@ -23,6 +23,13 @@ export const artistObject = {
   contact_email: "",
 }
 
+// TODO [low priority] add this to theme options?
+export const dateSettings = {
+  day: "numeric",
+  month: "long",
+  year: "numeric",
+}
+
 /**
  * Metadata stuff
  */

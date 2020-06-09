@@ -48,12 +48,4 @@ export default {
     flexGrow: 1,
     flexBasis: ["auto", null, 0],
   },
-  // iconLink: {
-  //   borderRadius: "50%",
-  //   mx: [1, 1, 1],
-  //   "&:hover": {
-  //     color: "background",
-  //     backgroundColor: "text"
-  //   }
-  // }
 }

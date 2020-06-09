@@ -1,5 +1,5 @@
 export default {
-  container: "48rem",
+  container: "60rem",
 
   /**
    * Note: Values in theme scales are not responsive. We cannot use

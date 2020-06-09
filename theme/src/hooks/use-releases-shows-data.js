@@ -19,7 +19,13 @@ const useReleasesShowsData = () => {
           title
           date
           release_type
-          # image
+          image {
+            childImageSharp {
+              fluid(maxWidth: 420, maxHeight: 420) {
+                ...GatsbyImageSharpFluid_withWebp
+              }
+            }
+          }
           links {
             name
             url
@@ -31,7 +37,7 @@ const useReleasesShowsData = () => {
 
   const shows = useStaticQuery(query).shows.nodes
   const releases = useStaticQuery(query).releases.nodes
-  return {shows, releases}
+  return { shows, releases }
 }
 
 export default useReleasesShowsData

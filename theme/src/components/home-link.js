@@ -9,7 +9,9 @@ import AnchorLink from "react-anchor-link-smooth-scroll"
 const TEMPORARY_BASEPATH = "/"
 
 export const BasePathLink = ({ children }) => (
-  <AnchorLink href="#___gatsby">{children}</AnchorLink>
+  <h1>
+    <AnchorLink href="#___gatsby">{children}</AnchorLink>
+  </h1>
 )
 
 export default ({ isBasePath }) => {

@@ -1,78 +1,56 @@
 /** @jsx jsx */
-// eslint-disable-next-line no-unused-vars
-import React from "react"
+import { Fragment } from "react"
 import PropTypes from "prop-types"
 import { Styled, jsx, Container } from "theme-ui"
-
-import useSiteMetadata from "../use-site-metadata"
+import useSiteMetadata from "../hooks/use-site-metadata"
+import useMusicianConfig from "../hooks/use-musician-config"
 import HeroImage from "./hero-image"
 import Social from "./social"
 
-let additionalStyles = {}
-let bgOverlayStyles = {}
+const getAdditionalStyles = (color, bgOverlay) => {
+  const obj = {}
+  if (color) obj.color = color
+  if (bgOverlay) {
+    obj["&:after"] = {
+      background: bgOverlay,
+    }
+  }
+  return obj
+}
 
-const BannerContent = ({ title, tagline }) => (
-  <>
-    <Styled.h1>{title}</Styled.h1>
-    {tagline && <p>{tagline}</p>}
-    <Social />
-  </>
+const BannerContent = ({ title, tagline, children }) => (
+  <Container className="GtmBanner__content-wrapper">
+    {children || (
+      <Fragment>
+        <Styled.h1>{title}</Styled.h1>
+        {tagline && <p>{tagline}</p>}
+        <Social />
+      </Fragment>
+    )}
+  </Container>
 )
 
 const Banner = ({ children, bgOverlay, color }) => {
-  // const { title, artist, bannerImg } = useSiteMetadata()
-  const title = ""
-  const artist = {}
-  const bannerImg = null
-
-  if (bannerImg) {
-    additionalStyles["flexDirection"] = "column"
-  }
-  if (color) {
-    additionalStyles["color"] = "color"
-  }
-
-  if (bgOverlay) {
-    bgOverlayStyles = {
-      "&:after": {
-        background: bgOverlay,
-      },
-    }
-  }
-
-  const bannerContentElement = (
-    <BannerContent
-      title={title}
-      tagline={typeof artist.tagline === "undefined" ? null : artist.tagline}
-    />
-  )
-
+  const { title } = useSiteMetadata()
+  const { artist, images } = useMusicianConfig()
+  const { bannerImg } = images
   return (
     <div
-      className="GtmBanner"
       sx={{
         variant: "components.banner",
-        ...additionalStyles,
-        ...bgOverlayStyles,
+        ...getAdditionalStyles(color || "", bgOverlay || ""),
       }}
     >
       {bannerImg ? (
-        <HeroImage
-          className="GtmBanner__hero-wrapper"
-          fluid={bannerImg.fluid}
-          sx={{ flexGrow: 1 }}
-        >
-          <Container className="GtmBanner__content-wrapper">
-            {children || bannerContentElement}
-          </Container>
+        <HeroImage className="GtmBanner__hero-wrapper" fluid={bannerImg.fluid}>
+          <BannerContent title={title} tagline={artist.tagline || ""}>
+            {children || null}
+          </BannerContent>
         </HeroImage>
       ) : (
-        <Container
-          className="GtmBanner__content-wrapper"
-          sx={{ alignSelf: "center" }}
-        >
-          {children || bannerContentElement}
-        </Container>
+        <BannerContent title={title} tagline={artist.tagline || ""}>
+          {children || null}
+        </BannerContent>
       )}
     </div>
   )

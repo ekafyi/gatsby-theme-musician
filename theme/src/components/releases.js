@@ -2,6 +2,7 @@
 import { jsx, Grid } from "theme-ui"
 import PropTypes from "prop-types"
 import LandingSection from "./landing-section"
+import ReleaseItem from "./release-item-new"
 import useReleasesShowsData from "../hooks/use-releases-shows-data"
 
 const defaultTitle = "Releases"
@@ -16,18 +17,16 @@ const Releases = ({
   // `releases` props is now optional; the fallback/default data comes from `useReleasesShowsData` hook.
   const yamlReleases = useReleasesShowsData().releases
   const renderReleases = releases || yamlReleases
+  console.log("renderReleases ", renderReleases)
   return (
     <LandingSection title={title}>
       {children || ""}
       {renderReleases.length > 0 ? (
-        <Grid gap={2} columns={[2, null, 4]}>
-          {renderReleases.map(node => {
-            return (
-              <article key={node.id}>
-                asdsadas
-                {/* <ReleaseItem {...node} /> */}
-              </article>
-            )
+        <Grid
+          variant={renderReleases.length === 2 ? "twoReleases" : "releases"}
+        >
+          {renderReleases.map(({ id, ...node }) => {
+            return <ReleaseItem key={id} {...node} />
           })}
         </Grid>
       ) : (

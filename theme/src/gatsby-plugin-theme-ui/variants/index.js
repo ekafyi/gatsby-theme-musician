@@ -7,12 +7,13 @@
 import banner from "./banner"
 import footer from "./footer"
 import header from "./header"
-import heroImg from "./hero-img"
+import hero from "./hero"
 import landing from "./landing"
 import showItem from "./show-item"
 
 // Shared/Utility
 import buttons from "./buttons"
+import grids from "./grids"
 import helper from "./helper"
 import layout from "./layout"
 import links from "./links"
@@ -26,13 +27,14 @@ export default {
     banner,
     footer,
     header,
-    heroImg,
+    hero,
     landing,
     showItem,
   },
 
   // Shared/Utility
   buttons,
+  grids,
   helper,
   layout,
   links,
