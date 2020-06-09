@@ -10,9 +10,8 @@ const SEO = ({ pageTitle, pageDescription, pageUrl, pathname }) => {
   const { title, description, siteUrl, siteLanguage } = useSiteMetadata()
 
   /**
-   * Get url from... (order of preference)
-   * 1. pageUrl prop (user-defined)
-   * 2. siteMetadata.siteUrl + (optional) pathname
+   * Get url from siteMetadata.siteUrl + (optional) pathname.
+   * Will be overridden if user supplies pageUrl via props.
    */
   const url = `${siteUrl}${pathname || ""}`
 
@@ -31,6 +30,7 @@ const SEO = ({ pageTitle, pageDescription, pageUrl, pathname }) => {
    * Get siteDescription from ... (order of preference)
    * 1. artist.seo_description from config
    * 2. siteMetadata.description
+   * Will be overridden if user supplies pageDescription via props.
    */
   const siteDescription = artist.seo_description || description
 
@@ -40,9 +40,10 @@ const SEO = ({ pageTitle, pageDescription, pageUrl, pathname }) => {
    * 2. banner image file (fallback)
    * If no image at all, image metadata will not be rendered by getImageMeta().
    */
+  const { socialImg, fallbackSocialImg } = images
   let socialImgPath = ""
-  if (images.socialImg || typeof fallbackSocialImg.resize !== "undefined") {
-    socialImgPath == socialImg || fallbackSocialImg.resize.src
+  if (socialImg || typeof fallbackSocialImg.resize !== "undefined") {
+    socialImgPath = socialImg || fallbackSocialImg.resize.src
   }
 
   return (
