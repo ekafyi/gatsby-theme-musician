@@ -18,6 +18,7 @@ export default {
     ...basicStyles,
     ...mediumSpacing,
     color: "text",
+    backgroundColor: "background",
     "&:hover": {
       color: "primary",
     },

@@ -1,87 +1,62 @@
 /** @jsx jsx */
 /* eslint-disable camelcase */
-// eslint-disable-next-line no-unused-vars
-import React from "react"
-import { Styled, jsx } from "theme-ui"
+import { Styled, jsx, Flex, Button } from "theme-ui"
+import PropTypes from "prop-types"
+import ShowItemDate from "./show-item-date"
 
-const ShowItem = ({ id, name, date, location, info_url, map_url }) => {
-  return (
-    <li key={id} className="GtmShowItem" sx={{ variant: "components.show" }}>
-      <time
-        dateTime={date}
-        aria-label={new Date(date).toLocaleDateString("en-GB", {
-          day: "numeric",
-          month: "long",
-          year: "numeric",
-        })}
-        className="GtmShowItem__date"
-        sx={{ variant: "components.show.date" }}
+const Venue = ({ location, url }) => (
+  <div sx={{ variant: "text.subheading" }}>
+    {location || ""}
+    {url && " · "}
+    {url && (
+      <Styled.a href={url} rel="external nofollow">
+        Map
+      </Styled.a>
+    )}
+  </div>
+)
+
+const RSVPButton = ({ url }) => {
+  if (url) {
+    return (
+      <Button
+        as="a"
+        href={url}
+        rel="external nofollow"
+        variant="regular"
+        sx={{ variant: "components.show.rsvp" }}
       >
-        <span
-          className="GtmShowItem__month"
-          sx={{ variant: "components.show.date.month" }}
-        >
-          {" "}
-          {new Date(date).toLocaleDateString("en-GB", {
-            month: "short",
-          })}{" "}
-        </span>
-        <span
-          className="GtmShowItem__day"
-          sx={{ variant: "components.show.date.day" }}
-        >
-          {new Date(date).toLocaleDateString("en-GB", {
-            day: "numeric",
-          })}
-        </span>
-      </time>
-      <div sx={{ variant: "components.show.colWrapper" }}>
-        <div sx={{ variant: "components.show.desc" }}>
-          <Styled.h4
-            className="GtmShowItem__title"
-            sx={{
-              m: 0,
-              pt: [0, 2],
-              pb: [1, 2],
-            }}
-          >
-            {name}
-          </Styled.h4>
-          <div sx={{ variant: "text.itemSubheading" }}>
-            {location}
-            {map_url && (
-              <>
-                {" "}
-                &middot;{" "}
-                <Styled.a href={map_url} rel="external nofollow">
-                  <strong>Map</strong>
-                </Styled.a>
-              </>
-            )}
-          </div>
+        Detail / RSVP
+      </Button>
+    )
+  } else {
+    return (
+      <small sx={{ variant: "components.show.noRsvp" }}>No RSVP info</small>
+    )
+  }
+}
+
+const ShowItem = ({ name, date, location, info_url, map_url }) => {
+  return (
+    <Flex as="article" sx={{ variant: "components.show.wrapper" }}>
+      <ShowItemDate date={date} />
+      <Flex sx={{ variant: "components.show.notDate" }}>
+        <div sx={{ variant: "components.show.nameContainer" }}>
+          <Styled.h3 sx={{ variant: "components.show.name" }}>{name}</Styled.h3>
+          <Venue location={location} url={map_url} />
         </div>
-        <div sx={{ variant: "components.show.rsvpLink" }}>
-          {info_url ? (
-            <a
-              href={info_url}
-              rel="external nofollow"
-              sx={{ variant: "textStyles.button" }}
-            >
-              Detail / RSVP
-            </a>
-          ) : (
-            <small
-              sx={{
-                color: "muted",
-              }}
-            >
-              No RSVP info
-            </small>
-          )}
-        </div>
-      </div>
-    </li>
+        <RSVPButton url={info_url} />
+      </Flex>
+    </Flex>
   )
 }
 
 export default ShowItem
+
+ShowItem.propTypes = {
+  name: PropTypes.string,
+  date: PropTypes.string,
+  location: PropTypes.string,
+  info_url: PropTypes.string,
+  map_url: PropTypes.string,
+}

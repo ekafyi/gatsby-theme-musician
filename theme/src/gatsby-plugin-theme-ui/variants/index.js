@@ -9,7 +9,8 @@ import footer from "./footer"
 import header from "./header"
 import hero from "./hero"
 import landing from "./landing"
-import showItem from "./show-item"
+import release from "./release-item"
+import show from "./show-item"
 
 // Shared/Utility
 import buttons from "./buttons"
@@ -29,7 +30,8 @@ export default {
     header,
     hero,
     landing,
-    showItem,
+    release,
+    show,
   },
 
   // Shared/Utility

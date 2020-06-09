@@ -2,7 +2,7 @@
 import { jsx } from "theme-ui"
 import PropTypes from "prop-types"
 import LandingSection from "./landing-section"
-import ShowItem from "./show-item-new"
+import ShowItem from "./show-item"
 import useReleasesShowsData from "../hooks/use-releases-shows-data"
 
 const defaultTitle = "Shows"

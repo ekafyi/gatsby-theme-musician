@@ -1,57 +1,57 @@
-export const showItemSpacing = [3, null, 4]
-export const showDateBoxSize = [72, null, 90]
+const horSpacing = [3, null, 4]
+const dateBoxSize = [72, null, 90]
+
+const rsvpFlex = {
+  flexBasis: "calc(9rem + 2vw)",
+  flexGrow: "1",
+}
 
 export default {
-  py: 3,
-  borderBottom: "2px solid",
-  "&:first-of-type": {
-    borderTop: "2px solid",
-  },
-  display: "flex",
-  date: {
-    // flexBasis: spacing.showDateBoxSize,
-    flexShrink: 0,
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    // height: spacing.showDateBoxSize,
-    // width: spacing.showDateBoxSize,
-    // mr: spacing.showItemSpacing,
-    p: 3,
-    textAlign: "center",
-    borderRadius: 2,
-    background: "accent",
-    color: "background",
-    lineHeight: 1.125,
-    month: {
-      fontSize: 2,
-      textTransform: "uppercase",
-      letterSpacing: "0.1em",
-    },
-    day: {
-      fontSize: 5,
-      fontWeight: 700,
-      letterSpacing: "0.02em",
-      mb: -1,
+  wrapper: {
+    py: 3,
+    borderBottom: "2px solid",
+    "&:first-of-type": {
+      borderTop: "2px solid",
     },
   },
-  colWrapper: {
-    flexGrow: 1,
-    display: "flex",
-    flexWrap: "wrap",
+  name: {
+    m: 0,
+    pt: [0, 2],
+    pb: [1, 2],
   },
-  desc: {
+  nameContainer: {
+    flex: "1 0",
     flexBasis: "14rem",
     flexGrow: "999",
     mb: [2, 3],
-    // pr: spacing.showItemSpacing,
+    pr: horSpacing,
   },
-  rsvpLink: {
-    flexBasis: "calc(9rem + 2vw)",
-    flexGrow: "1",
+  notDate: {
+    flex: "1 0",
+    flexWrap: "wrap",
+  },
+  rsvp: {
+    alignSelf: "start",
+    ...rsvpFlex,
+  },
+  noRsvp: {
+    color: "muted",
     textAlign: "right",
-    ">*": {
-      width: "100%",
-    },
+    ...rsvpFlex,
+  },
+  date: {
+    flexBasis: dateBoxSize,
+    flexShrink: 0,
+    flexDirection: "column",
+    justifyContent: "center",
+    height: dateBoxSize,
+    width: dateBoxSize,
+    mr: horSpacing,
+    p: 3,
+    textAlign: "center",
+    borderRadius: 2,
+    backgroundColor: "accent",
+    color: "background",
+    lineHeight: 1.125,
   },
 }

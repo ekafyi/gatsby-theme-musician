@@ -6,20 +6,24 @@ import Icon from "./icon-by-name"
 
 const ReleaseItemLink = ({ links = [] }) => {
   return (
-    <section>
-      <h4>Listen</h4>
-      <Styled.ul>
+    <section sx={{ variant: "components.release.links" }}>
+      {/* <h4>Listen</h4> */}
+      <ul sx={{ variant: "list.inline" }}>
         {links.map(link => {
           return (
             <li key={link.name}>
-              <a href={link.url} rel="external nofollow">
+              <a
+                href={link.url}
+                rel="external nofollow"
+                sx={{ variant: "links.listen" }}
+              >
                 <Icon name={link.name.toLowerCase().replace(/\s/g, "")} />
                 &nbsp;{link.name}
               </a>
             </li>
           )
         })}
-      </Styled.ul>
+      </ul>
     </section>
   )
 }

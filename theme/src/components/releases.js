@@ -2,7 +2,7 @@
 import { jsx, Grid } from "theme-ui"
 import PropTypes from "prop-types"
 import LandingSection from "./landing-section"
-import ReleaseItem from "./release-item-new"
+import ReleaseItem from "./release-item"
 import useReleasesShowsData from "../hooks/use-releases-shows-data"
 
 const defaultTitle = "Releases"
@@ -17,7 +17,7 @@ const Releases = ({
   // `releases` props is now optional; the fallback/default data comes from `useReleasesShowsData` hook.
   const yamlReleases = useReleasesShowsData().releases
   const renderReleases = releases || yamlReleases
-  console.log("renderReleases ", renderReleases)
+
   return (
     <LandingSection title={title}>
       {children || ""}

@@ -2,10 +2,10 @@ export default {
   inline: {
     listStyle: "none",
     p: 0,
-    color: "purple",
+    m: 0,
     li: {
       display: "inline-block",
-      mx: 1,
+      mr: 2,
     },
   },
   regular: {
