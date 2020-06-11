@@ -13,7 +13,6 @@ const useSiteMetadata = () => {
       }
     }
   `
-
   return useStaticQuery(query).site.siteMetadata
 }
 

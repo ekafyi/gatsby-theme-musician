@@ -34,9 +34,9 @@ const useReleasesShowsData = () => {
       }
     }
   `
-
-  const shows = useStaticQuery(query).shows.nodes
-  const releases = useStaticQuery(query).releases.nodes
+  const data = useStaticQuery(query)
+  const shows = data.shows.nodes
+  const releases = data.releases.nodes
   return { shows, releases }
 }
 
