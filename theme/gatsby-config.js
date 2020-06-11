@@ -73,6 +73,7 @@ module.exports = options => {
       `gatsby-plugin-sharp`,
       `gatsby-plugin-theme-ui`,
       `gatsby-plugin-react-helmet`,
+      `@pauliescanlon/gatsby-mdx-embed`,
 
       /**
        * The two plugins below must be in the specified order
