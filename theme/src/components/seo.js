@@ -32,7 +32,7 @@ const SEO = ({ pageTitle, pageDescription, pageUrl, pathname }) => {
    * 2. siteMetadata.description
    * Will be overridden if user supplies pageDescription via props.
    */
-  const siteDescription = artist.seo_description || description
+  const siteDescription = artist.seo_description || ""
 
   /**
    * Get socialImgPath from...
