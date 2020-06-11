@@ -19,7 +19,7 @@ export default {
   socialWrapper: {
     px: 3,
   },
-  ".GtmFooter__social-heading": {
+  socialTitle: {
     display: "inline-block",
     fontSize: 1,
     mb: 3,

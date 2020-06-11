@@ -5,7 +5,7 @@ import useMusicianConfig from "../hooks/use-musician-config"
 import AnchorLink from "react-anchor-link-smooth-scroll"
 
 const TEMPORARY_BASEPATH = "/"
-const linkStyle = { variant: "links.tomato" }
+const linkStyle = { variant: "links.header.nav" }
 
 export const ExternalLink = ({ href, children, ...props }) => (
   <a href={href} rel="external nofollow" sx={linkStyle} {...props}>
@@ -19,17 +19,17 @@ export const ScrollLink = ({ href, children, ...props }) => (
   </AnchorLink>
 )
 
-export const RouterLink = ({ to, children, ...props }) => (
+export const GatsbyLink = ({ to, children, ...props }) => (
   <Link to={to} activeClassName="is-active" sx={linkStyle} {...props}>
     {children}
   </Link>
 )
 
-export default ({ isBasePath }) => {
+export default ({ isBasePath, ...props }) => {
   const { navigation } = useMusicianConfig()
   if (!navigation.length) return null
   return (
-    <nav>
+    <nav {...props}>
       {navigation.map(nav => {
         const isExternal = nav.url.startsWith("http")
         const isSamePage =
@@ -51,15 +51,15 @@ export default ({ isBasePath }) => {
           )
         } else if (isHomeWithAnchor) {
           return (
-            <RouterLink key={nav.text} to={`${TEMPORARY_BASEPATH}${nav.url}`}>
+            <GatsbyLink key={nav.text} to={`${TEMPORARY_BASEPATH}${nav.url}`}>
               {nav.text}
-            </RouterLink>
+            </GatsbyLink>
           )
         } else {
           return (
-            <RouterLink key={nav.text} to={nav.url}>
+            <GatsbyLink key={nav.text} to={nav.url}>
               {nav.text}
-            </RouterLink>
+            </GatsbyLink>
           )
         }
       })}

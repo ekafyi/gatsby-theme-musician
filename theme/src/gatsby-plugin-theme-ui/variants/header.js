@@ -1,51 +1,43 @@
 import sizes from "../sizes"
+import helper from "./helper"
+
+const sideScroll = {
+  display: "flex",
+  flexWrap: "nowrap",
+  overflowX: "auto",
+  "-webkit-overflow-scrolling": "touch",
+  "-ms-overflow-style": "-ms-autohiding-scrollbar",
+}
+
+const headerCol = {
+  height: "navbarHeight",
+  alignItems: "center",
+}
 
 export default {
-  backgroundColor: "bgOpaque",
-  color: "text",
-  lineHeight: 0, // fix gap bug
-  minHeight: sizes.headerHeight,
-  textAlign: ["center", null, "initial"],
-  // fixed position
-  position: "fixed",
-  width: "100%",
-  top: 0,
-  zIndex: 2,
-  // end fixed position
-  container: {
-    py: 0,
-    display: "flex",
-    flexDirection: ["column", null, "row"],
-    alignItems: "center",
-    justifyContent: "space-between",
-  },
-  customChild: {
-    lineHeight: [
-      `${sizes.headerHeight[0]}px`,
-      null,
-      `${sizes.headerHeight[2]}px`,
-    ],
-  },
-  link: {
-    // ...textStyles.navLink, // replace with variant: links.nav
-    textTransform: "uppercase",
-    letterSpacing: "0.05em",
-    fontSize: [0, 0, 1],
-    height: sizes.headerHeight,
-    lineHeight: ["48px", null, "60px"],
-    px: [2, null, 3],
-    mx: 0,
-    "&:hover": {
-      color: "primary",
+  wrapper: {
+    ...helper.fixed,
+    zIndex: 3,
+    lineHeight: 1,
+    color: "navText",
+    backgroundColor: "navBg",
+    inner: {
+      px: [0, null, 4],
+      py: [0, 0], // override default Container style (variants.layout)
+      display: "flex",
+      flexDirection: ["column", null, "row"],
+      alignItems: ["center", null, "unset"],
+      justifyContent: "space-between",
     },
   },
-  homeLink: {
-    fontSize: "1em",
-    fontWeight: 700,
-    whiteSpace: "nowrap",
-    overflow: "hidden",
-    textOverflow: "ellipsis",
-    flexGrow: 1,
-    flexBasis: ["auto", null, 0],
+  home: {
+    ...headerCol,
+    display: "flex",
+  },
+  nav: {
+    ...headerCol,
+    ...sideScroll,
+    maxWidth: "100%",
+    mr: [null, null, `calc(-1 * ${sizes.navMenuXSpacing})`],
   },
 }

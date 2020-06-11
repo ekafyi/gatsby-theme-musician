@@ -1,9 +1,17 @@
+import sizes from "../sizes"
+
 const buttonishStyle = {
   display: "inline-block",
   textDecoration: "none",
   "&:hover": {
     color: "primary",
   },
+}
+
+const navLinkCommon = {
+  textDecoration: "none",
+  color: "currentColor",
+  display: "inline-block",
 }
 
 export default {
@@ -44,5 +52,38 @@ export default {
       marginTop: -1,
     },
     ...buttonishStyle,
+  },
+  header: {
+    home: {
+      ...navLinkCommon,
+      fontSize: 3,
+      fontWeight: 700,
+      mr: [0, null, 3],
+      pt: [2, null, 0],
+      whiteSpace: "nowrap",
+      img: {
+        top: ["12px !important", null, "8px !important"],
+        bottom: ["4px !important", null, "8px !important"],
+        height: "calc(100% - 16px) !important",
+        objectFit: "contain !important",
+      },
+    },
+    nav: {
+      ...navLinkCommon,
+      fontSize: 1,
+      lineHeight: 2,
+      px: sizes.navMenuXSpacing,
+      py: 2,
+      flex: "0 0 auto",
+      whiteSpace: "nowrap",
+      letterSpacing: "0.01em",
+      borderRadius: 2,
+      "&:hover": {
+        textDecoration: "underline",
+      },
+      "&.is-active, &:active, &:focus": {
+        backgroundColor: "navBgActive",
+      },
+    },
   },
 }

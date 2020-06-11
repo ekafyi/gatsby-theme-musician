@@ -21,7 +21,7 @@ const useReleasesShowsData = () => {
           release_type
           image {
             childImageSharp {
-              fluid(maxWidth: 420, maxHeight: 420) {
+              fluid(maxWidth: 300, maxHeight: 300) {
                 ...GatsbyImageSharpFluid_withWebp
               }
             }

@@ -12,7 +12,8 @@ const colors = {
   bgOpaque: "rgba(255,255,255,0.9)",
 }
 
-// Used for banner
-colors.bgGradient = `linear-gradient(150deg, ${colors.accent} 10%, ${colors.text} 60%, ${colors.text} 100%)`
+colors.navBg = colors.primary
+colors.navText = colors.background
+colors.navBgActive = colors.bgAccent
 
 export default colors

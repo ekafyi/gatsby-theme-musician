@@ -5,10 +5,16 @@ import Nav from "./nav"
 
 export default ({ isBasePath }) => {
   return (
-    <header role="banner">
-      <Container>
-        <HomeLink isBasePath={isBasePath} />
-        <Nav isBasePath={isBasePath} />
+    <header role="banner" sx={{ variant: "components.header.wrapper" }}>
+      <Container sx={{ variant: "components.header.wrapper.inner" }}>
+        <HomeLink
+          isBasePath={isBasePath}
+          sx={{ variant: "components.header.home" }}
+        />
+        <Nav
+          isBasePath={isBasePath}
+          sx={{ variant: "components.header.nav" }}
+        />
       </Container>
     </header>
   )

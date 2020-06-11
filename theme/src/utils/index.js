@@ -13,6 +13,10 @@ export const slugify = (string = "") => {
     .replace(/ +/g, "-")
 }
 
+export const getBannerGradient = (color1 = "", color2 = "") => {
+  return `linear-gradient(150deg, ${color1} 10%, ${color2} 60%, ${color2} 100%)`
+}
+
 export const artistObject = {
   name: "",
   tagline: "",

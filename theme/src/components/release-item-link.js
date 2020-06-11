@@ -1,13 +1,16 @@
 /** @jsx jsx */
 /* eslint-disable camelcase */
-import { Styled, jsx } from "theme-ui"
+import { jsx } from "theme-ui"
 import PropTypes from "prop-types"
 import Icon from "./icon-by-name"
+import VisuallyHidden from "@reach/visually-hidden"
 
 const ReleaseItemLink = ({ links = [] }) => {
   return (
     <section sx={{ variant: "components.release.links" }}>
-      {/* <h4>Listen</h4> */}
+      <VisuallyHidden>
+        <h4>Links/Listen</h4>
+      </VisuallyHidden>
       <ul sx={{ variant: "list.inline" }}>
         {links.map(link => {
           return (

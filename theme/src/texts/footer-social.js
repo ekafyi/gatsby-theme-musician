@@ -1,8 +1,12 @@
 /** @jsx jsx */
-import { jsx } from "theme-ui"
+import { jsx, Text } from "theme-ui"
 
 export default () => (
-  <strong className="GtmFooter__social-heading" sx={{ variant: "text.caps" }}>
+  <Text
+    as="strong"
+    variant="caps"
+    sx={{ variant: "components.footer.socialTitle" }}
+  >
     Follow &amp; Subscribe
-  </strong>
+  </Text>
 )

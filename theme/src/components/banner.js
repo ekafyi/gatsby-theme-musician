@@ -2,7 +2,6 @@
 import { Fragment } from "react"
 import PropTypes from "prop-types"
 import { Styled, jsx, Container } from "theme-ui"
-import useSiteMetadata from "../hooks/use-site-metadata"
 import useMusicianConfig from "../hooks/use-musician-config"
 import HeroImage from "./hero-image"
 import Social from "./social"
@@ -19,7 +18,7 @@ const getAdditionalStyles = (color, bgOverlay) => {
 }
 
 const BannerContent = ({ title, tagline, children }) => (
-  <Container className="GtmBanner__content-wrapper">
+  <Container sx={{ variant: "components.banner.content" }}>
     {children || (
       <Fragment>
         <Styled.h1>{title}</Styled.h1>
@@ -31,18 +30,22 @@ const BannerContent = ({ title, tagline, children }) => (
 )
 
 const Banner = ({ children, bgOverlay, color }) => {
-  const { title } = useSiteMetadata()
   const { artist, images } = useMusicianConfig()
   const { bannerImg } = images
+  const title = artist.name
   return (
     <div
       sx={{
-        variant: "components.banner",
+        variant: "components.banner.wrapper",
+        // Combine additional styles from user props
         ...getAdditionalStyles(color || "", bgOverlay || ""),
       }}
     >
       {bannerImg ? (
-        <HeroImage className="GtmBanner__hero-wrapper" fluid={bannerImg.fluid}>
+        <HeroImage
+          fluid={bannerImg.fluid}
+          sx={{ variant: "components.banner.hero" }}
+        >
           <BannerContent title={title} tagline={artist.tagline || ""}>
             {children || null}
           </BannerContent>
