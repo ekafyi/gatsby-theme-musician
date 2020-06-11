@@ -1,6 +1,6 @@
 import React from "react"
 import { MDXProvider } from "@mdx-js/react"
-import { Box, Button, Container, Flex, Grid } from "theme-ui"
+import { Box, Button, Container, Grid } from "theme-ui"
 
 import { Banner, Layout, MdxLink, Releases, Shows, Social } from "../components"
 
@@ -9,7 +9,6 @@ const components = {
   Box,
   Button,
   Container,
-  Flex,
   Grid,
   // Local components
   Banner,
