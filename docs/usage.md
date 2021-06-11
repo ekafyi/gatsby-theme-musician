@@ -71,7 +71,7 @@ artist:
 # Social links displayed in banner, footer, and in metadata
 social:
   - name: Facebook
-    url: https://facebook.com
+    url: https://facebook.com/thefhtamim4400
   - name: Instagram
     url: https://instagram.com
   - name: Twitter
